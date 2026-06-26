@@ -13,6 +13,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 body {
@@ -1683,6 +1684,70 @@ section {
   
   .lightbox-prev { left: 0.5rem; }
   .lightbox-next { right: 0.5rem; }
+}
+
+@media (max-width: 540px) {
+  .app-container {
+    padding: 0 0.85rem 2rem;
+  }
+
+  /* Skills: force single column on narrow phones */
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Achievement spotlight: stack photo below text */
+  .ach-spotlight {
+    flex-direction: column;
+  }
+
+  .ach-spotlight-photo {
+    padding: 0 1rem 1.25rem;
+    justify-content: flex-start;
+  }
+
+  .ach-photo-card {
+    transform: rotate(1.5deg) !important;
+  }
+
+  /* HC featured card: shorter on small phones */
+  .hc-featured-card {
+    height: 380px;
+  }
+
+  .hc-featured-overlay {
+    padding: 1.25rem 1.25rem 1.25rem 3.25rem;
+  }
+
+  .hc-featured-title {
+    font-size: 1.6rem;
+  }
+
+  .hc-featured-desc {
+    display: none;
+  }
+
+  /* Screenshots grid: single column */
+  .screenshots-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Mick gallery: allow wrapping at smaller size */
+  .mick-photo img,
+  .mick-photo video {
+    width: 120px;
+    height: 120px;
+  }
+
+  /* Project card grid: single column */
+  .projects-grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  /* Section card padding */
+  .section-card {
+    padding: 1.25rem;
+  }
 }
 
 /* --- Featured Projects Carousel --- */

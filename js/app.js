@@ -67,7 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
     "images/CameraChange_01.mp4",
     "images/RamenAbyss/ramen_06.mp4",
     "images/RamenAbyss/ramen_11.mp4",
-    "images/LAGS2026_GorillaCrawlers_01.mp4",
     "images/RoomChanges_03.mp4",
     "images/MechaKO/mechako_03.mp4",
     "images/Chrimp/chricken_09.mp4",
@@ -80,7 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
     "images/CameraChange_01.mp4",
     "images/RamenAbyss/ramen_06.mp4",
     "images/RamenAbyss/ramen_11.mp4",
-    "images/LAGS2026_GorillaCrawlers_01.mp4",
     "images/RoomChanges_03.mp4",
     "images/MechaKO/mechako_03.mp4",
     "images/Chrimp/chricken_09.mp4",
@@ -127,9 +125,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  setBgLayer(bgLayerA, getCurrentBgList()[0]);
-  bgLayerA.style.opacity = "1";
-  bgLayerB.style.opacity = "0";
+  const PORTRAIT_BG = "images/HeavenScreenshot_2026-06-02_20-24-06.png";
+
+  function isPortraitMobile() {
+    return window.matchMedia("(orientation: portrait) and (max-width: 768px)").matches;
+  }
 
   function transitionBg(reset) {
     const images = getCurrentBgList();
@@ -147,12 +147,47 @@ document.addEventListener("DOMContentLoaded", () => {
     bgAVisible = !bgAVisible;
   }
 
-  let bgTimer = setInterval(transitionBg, 3000);
+  let bgTimer = null;
+
+  function startBgSlideshow() {
+    if (bgTimer) clearInterval(bgTimer);
+    bgTimer = setInterval(transitionBg, 3000);
+  }
+
+  function stopBgSlideshow() {
+    if (bgTimer) { clearInterval(bgTimer); bgTimer = null; }
+  }
+
+  function initBackground() {
+    if (isPortraitMobile()) {
+      stopBgSlideshow();
+      const vid = bgLayerA.querySelector(".bg-video");
+      if (vid) { vid.style.display = "none"; vid.src = ""; }
+      bgLayerA.style.backgroundImage = `url(${PORTRAIT_BG})`;
+      bgLayerA.style.opacity = "1";
+      bgLayerB.style.opacity = "0";
+      bgAVisible = true;
+    } else {
+      setBgLayer(bgLayerA, getCurrentBgList()[0]);
+      bgLayerA.style.opacity = "1";
+      bgLayerB.style.opacity = "0";
+      startBgSlideshow();
+    }
+  }
+
+  initBackground();
+
+  let _bgResizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(_bgResizeTimer);
+    _bgResizeTimer = setTimeout(initBackground, 250);
+  });
 
   function resetBgSlideshow() {
-    clearInterval(bgTimer);
+    if (isPortraitMobile()) return;
+    stopBgSlideshow();
     transitionBg(true);
-    bgTimer = setInterval(transitionBg, 3000);
+    startBgSlideshow();
   }
 
   function setBgImage(url) {
