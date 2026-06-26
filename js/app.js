@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  const data = PORTFOLIO_DATA;
+  let data = PORTFOLIO_DATA;
 
   function mediaEl(url, alt, cls) {
     const isVid = /\.mp4$/i.test(url);
@@ -23,13 +23,19 @@ document.addEventListener("DOMContentLoaded", () => {
       navAbout: "About",
       navExperience: "Experience",
       navProjects: "Projects",
+      navFeatured: "Featured",
+      navAchievements: "Achievements",
+      navProjectsSide: "All Projects",
+      titleFeatured: "Featured Projects",
+      titleFeaturedProject: "Featured Project",
+      linkAllProjects: "All Projects",
       titleAchievements: "Key Achievements",
       titleAbout: "About Me",
       languagesTitle: "Languages",
       enginesTitle: "Engines & Tools",
       specialtiesTitle: "Specialties",
       titleExperience: "Professional Experience",
-      titleProjects: "Projects",
+      titleProjects: "All Projects",
       tabAll: "All",
       tabGames: "Games",
       tabTools: "Tools & Engines",
@@ -39,19 +45,122 @@ document.addEventListener("DOMContentLoaded", () => {
       titleProjHistory: "Development History",
       titleProjVideos: "Videos & Trailers",
       titleProjScreenshots: "Screenshots & Gameplay Gifs",
+      titleProjAwards: "Awards & Recognition",
       projSpecsTitle: "Project Specs",
       projLinksTitle: "Links & Releases",
-      
-      // Factsheet labels
       labelRole: "My Role",
       labelPlatforms: "Platforms",
       labelTech: "Tech Stack & Tools",
-      labelCategory: "Category"
+      labelCategory: "Category",
+      atCompany: "at",
+      cardViewDetails: "View Details",
+      cvDownload: "Download CV"
+    },
+    es: {
+      navHome: "Inicio",
+      navAbout: "Sobre Mí",
+      navExperience: "Experiencia",
+      navProjects: "Proyectos",
+      navFeatured: "Destacado",
+      navAchievements: "Logros",
+      navProjectsSide: "Todos los Proyectos",
+      titleFeatured: "Proyectos Destacados",
+      titleFeaturedProject: "Proyecto Destacado",
+      linkAllProjects: "Todos los Proyectos",
+      titleAchievements: "Logros Destacados",
+      titleAbout: "Sobre Mí",
+      languagesTitle: "Lenguajes",
+      enginesTitle: "Motores y Herramientas",
+      specialtiesTitle: "Especialidades",
+      titleExperience: "Experiencia Profesional",
+      titleProjects: "Todos los Proyectos",
+      tabAll: "Todos",
+      tabGames: "Juegos",
+      tabTools: "Herramientas y Motores",
+      btnBack: "Volver al Portafolio",
+      titleProjAbout: "Sobre el Proyecto",
+      titleProjFeatures: "Características Clave",
+      titleProjHistory: "Historia de Desarrollo",
+      titleProjVideos: "Videos y Trailers",
+      titleProjScreenshots: "Capturas y Gifs de Gameplay",
+      titleProjAwards: "Premios y Reconocimientos",
+      projSpecsTitle: "Especificaciones",
+      projLinksTitle: "Links y Lanzamientos",
+      labelRole: "Mi Rol",
+      labelPlatforms: "Plataformas",
+      labelTech: "Stack Tecnológico",
+      labelCategory: "Categoría",
+      atCompany: "en",
+      cardViewDetails: "Ver Detalles",
+      cvDownload: "Descargar CV"
     }
   };
 
-  const currentLanguage = "en"; // Default and initial building language
-  const trans = UI_TRANSLATIONS[currentLanguage];
+  let currentLanguage = localStorage.getItem("portfolio_lang") || "en";
+  let trans = UI_TRANSLATIONS[currentLanguage] || UI_TRANSLATIONS.en;
+
+  // --- Translation Merge Logic ---
+  function mergeTranslations(base, t) {
+    const r = JSON.parse(JSON.stringify(base));
+    if (t.profile) {
+      const tp = t.profile;
+      if (tp.title) r.profile.title = tp.title;
+      if (tp.bio) r.profile.bio = tp.bio;
+      if (tp.achievementSpotlight) Object.assign(r.profile.achievementSpotlight, tp.achievementSpotlight);
+      if (tp.skills) Object.assign(r.profile.skills, tp.skills);
+      if (tp.achievements) {
+        r.profile.achievements = base.profile.achievements.map((a, i) =>
+          ({ ...a, ...(tp.achievements[i] || {}) })
+        );
+      }
+      if (tp.experience) {
+        r.profile.experience = base.profile.experience.map((e, i) =>
+          ({ ...e, ...(tp.experience[i] || {}) })
+        );
+      }
+    }
+    if (t.projects) {
+      r.projects = base.projects.map(p => {
+        const tp = t.projects[p.id];
+        if (!tp) return p;
+        const merged = { ...p };
+        if (tp.tagline) merged.tagline = tp.tagline;
+        if (tp.description) merged.description = { ...p.description, ...tp.description };
+        if (tp.features) merged.features = tp.features;
+        if (tp.timeline) {
+          merged.timeline = p.timeline.map((tl, i) =>
+            tp.timeline[i] ? { ...tl, description: tp.timeline[i] } : tl
+          );
+        }
+        return merged;
+      });
+    }
+    return r;
+  }
+
+  function applyUITranslations() {
+    const t = UI_TRANSLATIONS[currentLanguage] || UI_TRANSLATIONS.en;
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      if (t[key]) el.textContent = t[key];
+    });
+    const langLabel = document.getElementById("lang-label");
+    if (langLabel) langLabel.textContent = currentLanguage.toUpperCase();
+    const langOptions = document.querySelectorAll(".lang-option");
+    langOptions.forEach(btn => btn.classList.toggle("active", btn.getAttribute("data-lang") === currentLanguage));
+  }
+
+  function setLanguage(lang) {
+    currentLanguage = lang;
+    localStorage.setItem("portfolio_lang", lang);
+    trans = UI_TRANSLATIONS[lang] || UI_TRANSLATIONS.en;
+    data = (lang === "es" && typeof TRANSLATIONS_ES !== "undefined")
+      ? mergeTranslations(PORTFOLIO_DATA, TRANSLATIONS_ES)
+      : PORTFOLIO_DATA;
+    applyUITranslations();
+    homeRendered = false;
+    handleRoute();
+  }
 
   // --- Theme Toggle Manager ---
   const themeToggle = document.getElementById("theme-toggle");
@@ -71,7 +180,6 @@ document.addEventListener("DOMContentLoaded", () => {
     "images/RoomChanges_03.mp4",
     "images/MechaKO/mechako_03.mp4",
     "images/Chrimp/chricken_09.mp4",
-    "images/MechaKO/mechako_01.mp4",
   ];
   const bgImagesLight = [
     "images/LAGS2026_Intro_02.mp4",
@@ -82,7 +190,6 @@ document.addEventListener("DOMContentLoaded", () => {
     "images/RoomChanges_03.mp4",
     "images/MechaKO/mechako_03.mp4",
     "images/Chrimp/chricken_09.mp4",
-    "images/MechaKO/mechako_01.mp4",
   ];
 
   const bgLayerA = document.querySelector(".bg-image-overlay");
@@ -281,8 +388,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 150);
   }
 
+  // Initialize data with stored language (e.g. if user previously chose Spanish)
+  if (currentLanguage === "es" && typeof TRANSLATIONS_ES !== "undefined") {
+    data = mergeTranslations(PORTFOLIO_DATA, TRANSLATIONS_ES);
+  }
+
   window.addEventListener("hashchange", handleRoute);
-  window.addEventListener("load", handleRoute);
+  window.addEventListener("load", () => {
+    handleRoute();
+    applyUITranslations();
+  });
 
   function updateActiveMenuLinks(hash) {
     const navItems = document.querySelectorAll(".nav-item");
@@ -455,7 +570,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <h3 class="carousel-slide-title">${proj.title}</h3>
               <p class="carousel-slide-desc">${proj.description.short}</p>
               <div class="carousel-btn-group">
-                <a href="#/project/${proj.id}" class="carousel-slide-btn"><i class="fa-solid fa-circle-info"></i> View Details</a>
+                <a href="#/project/${proj.id}" class="carousel-slide-btn"><i class="fa-solid fa-circle-info"></i> ${trans.cardViewDetails}</a>
                 <a href="#/#projects" class="carousel-slide-btn btn-secondary"><span data-i18n="linkAllProjects">All Projects</span> <i class="fa-solid fa-arrow-right"></i></a>
               </div>
             </div>
@@ -468,9 +583,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const prevBtnHtml = `<button class="carousel-nav prev" id="carousel-prev" aria-label="Previous Slide"><i class="fa-solid fa-chevron-left"></i></button>`;
       const nextBtnHtml = `<button class="carousel-nav next" id="carousel-next" aria-label="Next Slide"><i class="fa-solid fa-chevron-right"></i></button>`;
-      const indicatorsContainerHtml = `<div class="carousel-indicators" id="carousel-indicators">${indicatorsHtml}</div>`;
+      carouselContainer.innerHTML = slidesHtml + prevBtnHtml + nextBtnHtml;
 
-      carouselContainer.innerHTML = slidesHtml + prevBtnHtml + nextBtnHtml + indicatorsContainerHtml;
+      // Render dots outside the clipped container
+      const featuredDotsWrap = document.getElementById("featured-carousel-dots-wrap");
+      if (featuredDotsWrap) {
+        featuredDotsWrap.innerHTML = `<div class="carousel-indicators" id="carousel-indicators">${indicatorsHtml}</div>`;
+      }
 
       // Initialize Carousel Logic
       initCarousel(featuredProjects.length);
@@ -490,7 +609,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="history-marker"></div>
             <div class="history-content">
               <span class="history-date">${exp.date}</span>
-              <h3 class="history-role">${exp.role} <span>at ${exp.company}</span></h3>
+              <h3 class="history-role">${exp.role} <span>${trans.atCompany} ${exp.company}</span></h3>
               <p class="history-desc">${exp.description}</p>
             </div>
           </div>
@@ -499,7 +618,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Render Heaven Crawler featured showcase + Projects Grid
     renderHeavenCrawlerFeatured();
+    activeFilter = "all";
     renderProjectsGrid("all");
+    // Reset filter tab visual state
+    document.querySelectorAll(".filter-tab").forEach(t => t.classList.remove("active"));
+    const allTab = document.querySelector(".filter-tab[data-filter='all']");
+    if (allTab) allTab.classList.add("active");
     setupFilterTabEvents();
 
     homeRendered = true;
@@ -618,7 +742,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     container.innerHTML = `
-      <h2 class="section-title"><i class="fa-solid fa-star"></i> Featured Project</h2>
+      <h2 class="section-title"><i class="fa-solid fa-star"></i> ${trans.titleFeaturedProject}</h2>
       <div class="hc-featured-card">
         <div class="hc-featured-slider-wrap">
           ${slides.map((s, i) => `
@@ -635,7 +759,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <p class="hc-featured-tagline">${hc.tagline}</p>
             <p class="hc-featured-desc">${hc.description.short}</p>
             <div class="hc-featured-actions">
-              <a href="#/project/${hc.id}" class="hc-btn-primary"><i class="fa-solid fa-circle-info"></i> View Details</a>
+              <a href="#/project/${hc.id}" class="hc-btn-primary"><i class="fa-solid fa-circle-info"></i> ${trans.cardViewDetails}</a>
               ${hc.links[0] ? `<a href="${hc.links[0].url}" target="_blank" rel="noopener" class="hc-btn-secondary">${hc.links[0].label} <i class="fa-solid fa-arrow-up-right-from-square"></i></a>` : ""}
             </div>
           </div>
@@ -737,13 +861,16 @@ document.addEventListener("DOMContentLoaded", () => {
     `).join("");
   }
 
+  let filterTabsInitialized = false;
   function setupFilterTabEvents() {
+    if (filterTabsInitialized) return;
+    filterTabsInitialized = true;
     const tabs = document.querySelectorAll(".filter-tab");
     tabs.forEach(tab => {
       tab.addEventListener("click", (e) => {
         tabs.forEach(t => t.classList.remove("active"));
         e.target.classList.add("active");
-        
+
         activeFilter = e.target.getAttribute("data-filter");
         renderProjectsGrid(activeFilter);
       });
@@ -1077,5 +1204,27 @@ document.addEventListener("DOMContentLoaded", () => {
     if (activeProjectScreenshots.length === 0) return;
     currentImgIndex = (currentImgIndex + 1) % activeProjectScreenshots.length;
     updateLightboxImage();
+  }
+
+  // --- Language Selector Dropdown ---
+  const langBtn = document.getElementById("lang-btn");
+  const langMenu = document.getElementById("lang-menu");
+
+  if (langBtn && langMenu) {
+    langBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      langMenu.classList.toggle("open");
+    });
+
+    document.addEventListener("click", () => langMenu.classList.remove("open"));
+
+    langMenu.querySelectorAll(".lang-option").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const lang = btn.getAttribute("data-lang");
+        langMenu.classList.remove("open");
+        if (lang !== currentLanguage) setLanguage(lang);
+      });
+    });
   }
 });
