@@ -15,7 +15,7 @@ const PORTFOLIO_DATA = {
     linkedinUrl: "https://www.linkedin.com/in/juan-miguel-cerda-ordaz",
     githubUrl: "https://github.com/mickordaz",
     cvUrl: "docs/Miguel Ordaz CV 2026.pdf",
-    bio: `Hey! I'm Miguel — a <span class="bio-highlight">Game Development Engineer</span> and Software Engineer who loves building anything related to games, interactive experiences, simulations, and 3D graphics engines. I've always been <span class="bio-highlight">creative and deeply curious about how things work</span>, which eventually led me to dedicate myself to creating software and games — and I genuinely love it. I'm the kind of person who stays up until 3am programming a <span class="bio-highlight">chicken-shrimp desktop pet</span> just because it's fun, constantly learning so I can bring any idea to life.
+    bio: `Hi! I'm Miguel — a <span class="bio-highlight">Game Development Engineer</span> and Software Engineer who loves building anything related to games, interactive experiences, simulations, and 3D graphics engines. I've always been <span class="bio-highlight">creative and deeply curious about how things work</span>, which eventually led me to dedicate myself to creating software and games — and I genuinely love it. I'm the kind of person who stays up until 3am programming a <span class="bio-highlight">chicken-shrimp desktop pet</span> just because it's fun, constantly learning so I can bring any idea to life.
 
 Over the years I've worn many hats: starting as a <span class="bio-highlight">solo indie developer</span>, then becoming a <span class="bio-highlight">game dev professor</span> teaching university students I genuinely grew attached to, then <span class="bio-highlight">leading engineering teams and co-directing award-winning game development</span>, and also building <span class="bio-highlight">bio-simulations, AI agent swarms and clinical research systems</span> for cancer research, among other things.
 
@@ -44,7 +44,7 @@ Let's work together — if you can imagine it, I can make it real.`,
     // --- SKILLS ---
     skills: {
       languages: ["C#", "C++", "Python", "JavaScript", "TypeScript", "HTML5", "CSS3"],
-      engines: ["Unity", "Unreal Engine", "Git", "Custom Engines", "FMOD"],
+      engines: ["Unity", "Unreal Engine", "React", "Three.js", "FastAPI", "Node.js", "Custom Engines", "Docker", "Git"],
       specialties: ["Core Gameplay Engineering", "Gamefeel & Polish", "Systems Architecture", "AI Behavior & Swarms", "Procedural Animation", "Multiplayer Systems", "XR (Apple Vision Pro)"]
     },
 
