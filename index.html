@@ -85,6 +85,7 @@
         <aside class="profile-card section-card">
           <div class="profile-header">
             <div class="avatar-container">
+              <div class="avatar-spinner" id="avatar-spinner"></div>
               <img id="profile-avatar" src="" alt="Juan Miguel Cerda Ordaz Profile Picture" fetchpriority="high">
             </div>
             <h1 class="profile-name" id="profile-name">Juan Miguel Cerda Ordaz</h1>
@@ -119,8 +120,8 @@
             <a href="#/#featured" class="sidebar-nav-item"><i class="fa-solid fa-star"></i> <span data-i18n="navFeatured">Featured</span></a>
             <a href="#/#about" class="sidebar-nav-item"><i class="fa-solid fa-user"></i> <span data-i18n="navAbout">About Me</span></a>
             <a href="#/#achievements" class="sidebar-nav-item"><i class="fa-solid fa-award"></i> <span data-i18n="navAchievements">Achievements</span></a>
-            <a href="#/#experience" class="sidebar-nav-item"><i class="fa-solid fa-briefcase"></i> <span data-i18n="navExperience">Experience</span></a>
             <a href="#/#projects" class="sidebar-nav-item"><i class="fa-solid fa-gamepad"></i> <span data-i18n="navProjectsSide">All Projects</span></a>
+            <a href="#/#experience" class="sidebar-nav-item"><i class="fa-solid fa-briefcase"></i> <span data-i18n="navExperience">Experience</span></a>
           </nav>
 
         </aside>
@@ -180,16 +181,6 @@
             </div>
           </section>
 
-          <!-- Section: Experience Timeline -->
-          <section id="experience" class="experience-section">
-            <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> <span data-i18n="titleExperience">Professional Experience</span></h2>
-            <div class="section-card">
-              <div class="history-timeline" id="experience-timeline">
-                <!-- Populated dynamically via JS -->
-              </div>
-            </div>
-          </section>
-
           <!-- Section: Interactive Projects Grid -->
           <section id="projects" class="projects-section">
 
@@ -205,9 +196,19 @@
                 <button class="filter-tab" data-filter="Tools & Engines" data-i18n="tabTools">Tools & Engines</button>
               </div>
             </div>
-            
+
             <div class="projects-grid-container" id="projects-grid">
               <!-- Populated dynamically via JS -->
+            </div>
+          </section>
+
+          <!-- Section: Experience Timeline -->
+          <section id="experience" class="experience-section">
+            <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> <span data-i18n="titleExperience">Professional Experience</span></h2>
+            <div class="section-card">
+              <div class="history-timeline" id="experience-timeline">
+                <!-- Populated dynamically via JS -->
+              </div>
             </div>
           </section>
           
@@ -230,10 +231,17 @@
         <!-- Primary Description and Media Column -->
         <div class="project-main-content">
           
-          <!-- Banner Header with Text Overlay -->
-          <div class="presskit-banner" id="project-banner-container">
-            <!-- Dynamic banner image & text details pre-pended here via JS -->
+          <!-- Project Title Header (above carousel) -->
+          <div class="project-hero-header" id="project-hero-header">
+            <h1 class="project-hero-title" id="project-hero-title"></h1>
+            <p class="project-hero-tagline" id="project-hero-tagline"></p>
           </div>
+
+          <!-- Banner Carousel -->
+          <div class="presskit-banner" id="project-banner-container">
+            <!-- Dynamic carousel rendered via JS -->
+          </div>
+          <div class="detail-carousel-dots-wrap" id="detail-carousel-dots-wrap"></div>
 
           <!-- Description Section -->
           <section id="project-about-section">

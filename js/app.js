@@ -65,26 +65,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const bgImagesDark = [
     "images/LAGS2026_Intro_02.mp4",
     "images/CameraChange_01.mp4",
+    "images/RamenAbyss/ramen_01.mp4",
     "images/RamenAbyss/ramen_06.mp4",
     "images/RamenAbyss/ramen_11.mp4",
     "images/RoomChanges_03.mp4",
     "images/MechaKO/mechako_03.mp4",
     "images/Chrimp/chricken_09.mp4",
     "images/MechaKO/mechako_01.mp4",
-    "images/Chrimp/chricken_11.mp4",
-    "images/Chrimp/chricken_13.mp4",
   ];
   const bgImagesLight = [
     "images/LAGS2026_Intro_02.mp4",
     "images/CameraChange_01.mp4",
+    "images/RamenAbyss/ramen_01.mp4",
     "images/RamenAbyss/ramen_06.mp4",
     "images/RamenAbyss/ramen_11.mp4",
     "images/RoomChanges_03.mp4",
     "images/MechaKO/mechako_03.mp4",
     "images/Chrimp/chricken_09.mp4",
     "images/MechaKO/mechako_01.mp4",
-    "images/Chrimp/chricken_11.mp4",
-    "images/Chrimp/chricken_13.mp4",
   ];
 
   const bgLayerA = document.querySelector(".bg-image-overlay");
@@ -325,7 +323,13 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Set Profile Header details
     const avatarEl = document.getElementById("profile-avatar");
-    if (avatarEl) avatarEl.src = profile.avatar;
+    const avatarSpinner = document.getElementById("avatar-spinner");
+    if (avatarEl) {
+      avatarEl.src = profile.avatar;
+      avatarEl.addEventListener("load", () => {
+        if (avatarSpinner) avatarSpinner.style.display = "none";
+      }, { once: true });
+    }
     
     document.getElementById("profile-name").textContent = profile.fullName;
     document.getElementById("profile-tagline").textContent = profile.title;
@@ -382,12 +386,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const achBannerEl = document.getElementById("achievement-banner-wrap");
     if (achBannerEl && profile.achievementBanner) {
       const s = profile.achievementSpotlight || {};
+      const spotlightDesc = profile.achievements[0] ? profile.achievements[0].description : "";
       achBannerEl.innerHTML = `
         <div class="ach-spotlight">
           <div class="ach-spotlight-info">
-            <span class="ach-spotlight-badge">🏆 ${s.badge || "Grand Prize"}</span>
+            <span class="ach-spotlight-badge"><i class="fa-solid fa-trophy"></i> ${s.badge || "Grand Prize"}</span>
             <h3 class="ach-spotlight-event">${(s.event || "").replace("\n", "<br>")}</h3>
             <div class="ach-spotlight-sub">${s.subtitle || ""} &middot; ${s.year || ""}</div>
+            ${spotlightDesc ? `<p class="ach-spotlight-desc">${spotlightDesc}</p>` : ""}
           </div>
           <div class="ach-spotlight-photo">
             <div class="mick-photo ach-photo-card">
@@ -398,21 +404,34 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
     }
 
-    // Render Achievements (New Card Layout)
+    // Render Achievements (skip first entry — already shown in spotlight)
     const achievementsList = document.getElementById("achievements-list");
     if (achievementsList) {
       achievementsList.innerHTML = profile.achievements
+        .slice(1)
         .map(ach => `
-          <li>
+          <li class="ach-collapsible" tabindex="0" role="button" aria-expanded="false">
             <div class="achievement-icon">
               <i class="fa-solid fa-trophy"></i>
             </div>
             <div class="achievement-text">
               <strong>${ach.title}</strong>
-              <p>${ach.description}</p>
+              <p class="ach-desc">${ach.description}</p>
             </div>
+            <i class="fa-solid fa-chevron-down ach-chevron"></i>
           </li>
         `).join("");
+
+      achievementsList.querySelectorAll(".ach-collapsible").forEach(li => {
+        li.addEventListener("click", () => {
+          const expanded = li.getAttribute("aria-expanded") === "true";
+          li.setAttribute("aria-expanded", String(!expanded));
+          li.classList.toggle("expanded", !expanded);
+        });
+        li.addEventListener("keydown", e => {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); li.click(); }
+        });
+      });
     }
 
     // Render Featured Projects Carousel
@@ -599,6 +618,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     container.innerHTML = `
+      <h2 class="section-title"><i class="fa-solid fa-star"></i> Featured Project</h2>
       <div class="hc-featured-card">
         <div class="hc-featured-slider-wrap">
           ${slides.map((s, i) => `
@@ -611,7 +631,6 @@ document.addEventListener("DOMContentLoaded", () => {
         <button class="hc-nav-btn hc-nav-next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
         <div class="hc-featured-overlay">
           <div class="hc-featured-content">
-            <span class="hc-featured-badge"><i class="fa-solid fa-star"></i> Featured Project</span>
             <h3 class="hc-featured-title">${hc.title}</h3>
             <p class="hc-featured-tagline">${hc.tagline}</p>
             <p class="hc-featured-desc">${hc.description.short}</p>
@@ -620,18 +639,16 @@ document.addEventListener("DOMContentLoaded", () => {
               ${hc.links[0] ? `<a href="${hc.links[0].url}" target="_blank" rel="noopener" class="hc-btn-secondary">${hc.links[0].label} <i class="fa-solid fa-arrow-up-right-from-square"></i></a>` : ""}
             </div>
           </div>
-          <div class="hc-featured-indicators">
-            ${slides.map((s, i) => `
-              <button class="hc-indicator ${i === 0 ? "active" : ""}" data-hc-index="${i}" title="${s.caption}"></button>
-            `).join("")}
-          </div>
         </div>
+      </div>
+      <div class="detail-carousel-dots-wrap hc-dots-wrap">
+        ${slides.map((_, i) => `<button class="detail-dot-ext ${i === 0 ? "active" : ""}" data-idx="${i}"></button>`).join("")}
       </div>
     `;
 
     let currentSlide = 0;
     const slideEls = container.querySelectorAll(".hc-featured-slide");
-    const dotEls   = container.querySelectorAll(".hc-indicator");
+    const hcDotEls = container.querySelectorAll(".hc-dots-wrap .detail-dot-ext");
 
     function loadSlide(index) {
       const el = slideEls[index];
@@ -644,22 +661,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function goToSlide(index) {
       slideEls[currentSlide].classList.remove("active");
-      dotEls[currentSlide].classList.remove("active");
+      if (hcDotEls[currentSlide]) hcDotEls[currentSlide].classList.remove("active");
       currentSlide = (index + slides.length) % slides.length;
       loadSlide(currentSlide);
-      // Preload next so the transition is seamless
       loadSlide((currentSlide + 1) % slides.length);
       slideEls[currentSlide].classList.add("active");
-      dotEls[currentSlide].classList.add("active");
+      if (hcDotEls[currentSlide]) hcDotEls[currentSlide].classList.add("active");
     }
 
-    dotEls.forEach((dot, i) => {
-      dot.addEventListener("click", (e) => {
-        e.stopPropagation();
-        goToSlide(i);
-        resetHcTimer();
-      });
-    });
+    hcDotEls.forEach((dot, i) => dot.addEventListener("click", (e) => {
+      e.stopPropagation();
+      goToSlide(i);
+      resetHcTimer();
+    }));
 
     container.querySelector(".hc-nav-prev").addEventListener("click", (e) => {
       e.stopPropagation();
@@ -674,7 +688,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     container.querySelector(".hc-featured-card").addEventListener("click", (e) => {
-      if (!e.target.closest("a") && !e.target.closest(".hc-indicator") && !e.target.closest(".hc-nav-btn")) {
+      if (!e.target.closest("a") && !e.target.closest(".hc-nav-btn")) {
         window.location.hash = `#/project/${hc.id}`;
       }
     });
@@ -742,16 +756,78 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderProjectDetail(project) {
     activeProjectScreenshots = project.screenshots || [];
 
-    // Set Banner Header
+    // Set Project Hero Title (above carousel)
+    const heroTitle = document.getElementById("project-hero-title");
+    const heroTagline = document.getElementById("project-hero-tagline");
+    if (heroTitle) heroTitle.textContent = project.title;
+    if (heroTagline) heroTagline.textContent = project.tagline;
+
+    // Set Banner Carousel
     const bannerContainer = document.getElementById("project-banner-container");
     if (bannerContainer) {
+      const shots = (project.screenshots && project.screenshots.length > 0)
+        ? project.screenshots
+        : [{ url: project.banner, caption: project.title }];
+
       bannerContainer.innerHTML = `
-        ${mediaEl(project.banner, project.title + " Banner", "banner-img")}
+        <div class="detail-carousel-track">
+          ${shots.map((s, i) => `
+            <div class="detail-carousel-slide ${i === 0 ? "active" : ""}">
+              ${mediaEl(s.url, s.caption, "banner-img")}
+            </div>
+          `).join("")}
+        </div>
+        ${shots.length > 1 ? `
+          <button class="detail-nav-btn detail-nav-prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="detail-nav-btn detail-nav-next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+        ` : ""}
         <div class="banner-overlay">
-          <h1 class="game-title">${project.title}</h1>
           <p class="game-tagline">${project.tagline}</p>
         </div>
       `;
+
+      const slideEls = bannerContainer.querySelectorAll(".detail-carousel-slide");
+      let curSlide = 0;
+
+      // Render external dots
+      const dotsWrap = document.getElementById("detail-carousel-dots-wrap");
+      if (dotsWrap) {
+        dotsWrap.innerHTML = shots.length > 1
+          ? shots.map((_, i) => `<button class="detail-dot-ext ${i === 0 ? "active" : ""}" data-idx="${i}"></button>`).join("")
+          : "";
+      }
+      const dotEls = dotsWrap ? dotsWrap.querySelectorAll(".detail-dot-ext") : [];
+
+      function goDetailSlide(idx) {
+        const prevVid = slideEls[curSlide].querySelector("video");
+        if (prevVid) prevVid.pause();
+        slideEls[curSlide].classList.remove("active");
+        if (dotEls[curSlide]) dotEls[curSlide].classList.remove("active");
+        curSlide = (idx + shots.length) % shots.length;
+        slideEls[curSlide].classList.add("active");
+        if (dotEls[curSlide]) dotEls[curSlide].classList.add("active");
+        const vid = slideEls[curSlide].querySelector("video");
+        if (vid) vid.play().catch(() => {});
+      }
+
+      if (shots.length > 1) {
+        bannerContainer.querySelector(".detail-nav-prev").addEventListener("click", (e) => { e.stopPropagation(); goDetailSlide(curSlide - 1); });
+        bannerContainer.querySelector(".detail-nav-next").addEventListener("click", (e) => { e.stopPropagation(); goDetailSlide(curSlide + 1); });
+        dotEls.forEach((dot, i) => dot.addEventListener("click", () => goDetailSlide(i)));
+      }
+
+      // Click any slide to open lightbox at that index
+      if (project.screenshots && project.screenshots.length > 0) {
+        slideEls.forEach((slide, i) => {
+          slide.style.cursor = "zoom-in";
+          slide.addEventListener("click", (e) => {
+            if (!e.target.closest(".detail-nav-btn")) {
+              currentImgIndex = i;
+              openLightbox();
+            }
+          });
+        });
+      }
     }
 
     // Set Description

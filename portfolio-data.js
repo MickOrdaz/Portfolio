@@ -84,7 +84,7 @@ My work spans <span class="bio-highlight">systems engineering, high-performance 
         date: "2021 - 2026",
         company: "Carbon Machina Studio",
         role: "Lead Programmer & Co-Director",
-        description: "Led a multidisciplinary engineering team programming core features, advanced AI behavior, game feel, UI systems, and editor tools in Unity and Unreal. Collaborated with artists to design automated 2D/3D asset pipelines."
+        description: "Led a multidisciplinary engineering team programming core features, gameplay, advanced AI behavior, game feel, UI systems, and editor tools in Unity and Unreal."
       },
       {
         date: "2022 - 2023",
@@ -112,7 +112,7 @@ My work spans <span class="bio-highlight">systems engineering, high-performance 
       techStack: ["Unity", "C#", "FMOD", "Procedural Generation", "Behavior Trees", "Inverse Kinematics"],
       banner: "images/LAGS2026_Intro_02.mp4",
       thumbnail: "images/LAGS2026_Intro_02.mp4",
-      backgroundImage: "images/Heaven_crawler_STEAM_3_MAIN.png",
+      backgroundImage: "images/LAGS2026_Intro_02.mp4",
       description: {
         short: "Explore, fight, and uncover the secrets of a mysterious tower using unique Mechanical Arms as you climb your way through a deeply personal journey.",
         full: "Heaven Crawler is an action-adventure roguelite dungeon crawler with RPG elements. Help 'the Child' fight his way through The Womb — a colossal Babelian megastructure built to reach the heavens — in order to bring his mother back from the dead. Inside the Tower, he'll be aided by 'the Guide' and friendly robots that upgrade the hub and unveil the Tower's secrets across each run. Wield Mechanical Arms with unique abilities, mix Masks, Magic, Mementos, and Relics into your own build, and use the environment itself — traps, props, reactive elements — to overcome every challenge in your path. Inspired by The Legend of Zelda, NieR, and Fumito Ueda's work. And remember: bring her back."
@@ -138,8 +138,9 @@ My work spans <span class="bio-highlight">systems engineering, high-performance 
         "A ROGUELITE ABOUT LOSS AND GROWTH. A deeply personal story told through exploration and environmental storytelling, where every detail of the Tower holds meaning. Bring her back."
       ],
       timeline: [
-        { date: "2018", description: "Concept. Prototypes developed by Miguel Cerda during free time." },
-        { date: "March 2024", description: "Pre-production starts. Carbon Machina Studio joins to scale development." },
+        { date: "2018", description: "Solo development begins. Concept, worldbuilding, and early prototypes built by me during free time at Critical Slash." },
+        { date: "2018 – 2024", description: "Six years of solo development. The game was iterated and expanded until it reached a fully playable state from start to finish — complete story, mechanics, and core systems." },
+        { date: "2024", description: "Partnered with Carbon Machina Studio to unlock the game's full potential. Pre-production restarts with a full team to elevate art, audio, and production quality." },
         { date: "June 2024", description: "Teaser Trailer officially announced." },
         { date: "October 2025", description: "Wins the Grand Prize at the Supernova Game Devs Challenge by unanimous decision." },
         { date: "June 2026", description: "Kickstarter campaign launched to fund final release stages." }
@@ -149,7 +150,6 @@ My work spans <span class="bio-highlight">systems engineering, high-performance 
         { title: "Teaser Trailer - LAGS 2024", youtubeId: "-A5Z86Qi9-o" }
       ],
       screenshots: [
-        { caption: "Fight", url: "images/HeavenScreenshot_2026-06-02_04-04-21.png" },
         { caption: "Dynamic 3rd Person Camera", url: "images/CameraChange_01.mp4" },
         { caption: "Mechanical Arm-Based Modular Combat", url: "images/LAGS2026_GorillaCrawlers_01.mp4" },
         { caption: "Mix and Match Equipment Systems", url: "images/Bodygear_04.mp4" },
@@ -158,6 +158,7 @@ My work spans <span class="bio-highlight">systems engineering, high-performance 
         { caption: "Expansive Persistent HUB", url: "images/NPC_02.mp4" },
         { caption: "Stylized Analog Inventory.", url: "images/LAGS2026_Inventory_04.mp4" },
         { caption: "An Emotional Adventure Awaits.", url: "images/LAGS2026_Intro_02.mp4" },
+        { caption: "Fight", url: "images/HeavenScreenshot_2026-06-02_04-04-21.png" },
         { caption: "Adventure Awaits", url: "images/HeavenScreenshot_2026-06-02_20-24-06.png" },
         { caption: "Shop Room", url: "images/HeavenCrawler_ShopRoom_SS_001.png" },
         { caption: "Dragon Shot", url: "images/dragonshot.png" },
@@ -196,15 +197,15 @@ My work spans <span class="bio-highlight">systems engineering, high-performance 
       ],
       videos: [],
       screenshots: [
+        { caption: "Football Match!", url: "images/Chrimp/chricken_07.mp4" },
         { caption: "Zoombie Waves", url: "images/Chrimp/chricken_11.mp4" },
+        { caption: "Dance when Music Plays", url: "images/Chrimp/chricken_06.mp4" },
+        { caption: "Balloon minigame", url: "images/Chrimp/chricken_09.mp4" },
+        { caption: "Cooking for coins", url: "images/Chrimp/chricken_10.mp4" },
+        { caption: "Chicken AI", url: "images/Chrimp/chricken_13.mp4" },
         { caption: "Hanging Around", url: "images/Chrimp/chricken_00.png" },
         { caption: "Menu & Food", url: "images/Chrimp/chricken_02.png" },
         { caption: "Eating", url: "images/Chrimp/chricken_03.png" },
-        { caption: "Dance when Music Plays", url: "images/Chrimp/chricken_06.mp4" },
-        { caption: "Football Match!", url: "images/Chrimp/chricken_07.mp4" },
-        { caption: "Balloon minigame", url: "images/Chrimp/chricken_09.mp4" },
-        { caption: "Cooking for coins", url: "images/Chrimp/chricken_10.mp4" },
-        { caption: "Chicken AI", url: "images/Chrimp/chricken_13.mp4" }
       ]
     },
     {
@@ -329,9 +330,9 @@ My work spans <span class="bio-highlight">systems engineering, high-performance 
       category: "Games",
       tagline: "A game jam adventure exploring climate-induced migration through the eyes of a child.",
       role: "Lead Programmer, Tools Developer & Train Operator",
-      techStack: ["Unity", "C#", "Cinemachine"],
+      techStack: ["Unity", "C#"],
       banner: "images/AmericanTrail/trail_00.png",
-      thumbnail: "images/AmericanTrail/trail_00.png",
+      thumbnail: "images/AmericanTrail/trail_03.mp4",
       backgroundImage: "images/AmericanTrail/trail_07.png",
       description: {
         short: "Help young Alfonso and his Abuela survive the harsh elements aboard a train heading north.",
