@@ -11,9 +11,26 @@ document.addEventListener("DOMContentLoaded", () => {
     const isVid = /\.mp4$/i.test(url);
     const clsAttr = cls ? ` class="${cls}"` : "";
     if (isVid) {
-      return `<video${clsAttr} autoplay loop muted playsinline preload="metadata" src="${url}"></video>`;
+      return `<video${clsAttr} autoplay loop muted playsinline preload="none" data-src="${url}"></video>`;
     }
     return `<img${clsAttr} src="${url}" alt="${alt}" loading="lazy">`;
+  }
+
+  function initLazyVideos() {
+    const videos = document.querySelectorAll("video[data-src]");
+    if (!videos.length) return;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const video = entry.target;
+          video.src = video.dataset.src;
+          video.load();
+          video.play().catch(() => {});
+          observer.unobserve(video);
+        }
+      });
+    }, { rootMargin: "200px" });
+    videos.forEach(v => observer.observe(v));
   }
 
   // --- UI Translation Dictionaries ---
@@ -382,9 +399,12 @@ document.addEventListener("DOMContentLoaded", () => {
       
       // Update top menu active states
       updateActiveMenuLinks(hash);
-      
+
       // Smooth fade-in
       document.body.style.opacity = "1";
+
+      // Lazy-load videos that are now in the DOM
+      initLazyVideos();
     }, 150);
   }
 
@@ -1054,7 +1074,7 @@ document.addEventListener("DOMContentLoaded", () => {
           .map((screenshot, idx) => {
             const isVid = /\.mp4$/i.test(screenshot.url);
             const media = isVid
-              ? `<video autoplay loop muted playsinline preload="metadata" src="${screenshot.url}"></video>`
+              ? `<video autoplay loop muted playsinline preload="none" data-src="${screenshot.url}"></video>`
               : `<img src="${screenshot.url}" alt="${screenshot.caption}" loading="lazy">`;
             return `
               <div class="screenshot-card" data-index="${idx}">
