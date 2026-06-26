@@ -57,8 +57,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const bgImagesDark = [
     "images/LAGS2026_Intro_02.gif",
     "images/CameraChange_01.gif",
-    "images/RAmenAbyss/ramen_06.gif",
-    "images/RAmenAbyss/ramen_11.gif",
+    "images/RamenAbyss/ramen_06.gif",
+    "images/RamenAbyss/ramen_11.gif",
     "images/LAGS2026_GorillaCrawlers_01.gif",
     "images/RoomChanges_03.gif",
     "images/MechaKO/mechako_03.gif",
@@ -70,8 +70,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const bgImagesLight = [
     "images/LAGS2026_Intro_02.gif",
     "images/CameraChange_01.gif",
-    "images/RAmenAbyss/ramen_06.gif",
-    "images/RAmenAbyss/ramen_11.gif",
+    "images/RamenAbyss/ramen_06.gif",
+    "images/RamenAbyss/ramen_11.gif",
     "images/LAGS2026_GorillaCrawlers_01.gif",
     "images/RoomChanges_03.gif",
     "images/MechaKO/mechako_03.gif",

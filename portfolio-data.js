@@ -214,9 +214,9 @@ My work spans <span class="bio-highlight">systems engineering, high-performance 
       tagline: "Local co-op roguelike built in Unity 6 with wobbly physics and procedural animation systems.",
       role: "Solo Developer",
       techStack: ["Unity", "C#", "Multiplayer", "Procedural Animation"],
-      banner: "images/RAmenAbyss/ramen_06.gif",
-      thumbnail: "images/RAmenAbyss/ramen_06.gif",
-      backgroundImage: "images/RAmenAbyss/ramen_06.gif",
+      banner: "images/RamenAbyss/ramen_06.gif",
+      thumbnail: "images/RamenAbyss/ramen_06.gif",
+      backgroundImage: "images/RamenAbyss/ramen_06.gif",
       description: {
         short: "Control a wobbly boiled egg in a local co-op roguelike. Structured as an educational project with tutorial videos uploaded to TikTok, Instagram, YouTube, and Facebook.",
         full: "Ramen Abyss is a top-down, local 2-player co-op roguelike built in Unity 6 targeting Steam, Itch, Android, and iOS. Players control a custom-built, horn-adorned soft-boiled egg featuring wobbly physics and procedurally animated limbs. Wielding three weapon categories (Pierce, Sharp, and Blunt), players descend into a randomly generated ramen cup to slay ingredient-themed monsters (like Pea Slimes and Pork Knights) across four distinct zones (Pork Plains, Seafood Depths, Inferno Bowl, and Abyssal Broth). The game features deep upgrades, perk shrines, and Narutomaki Coin meta-progression to unlock skins. The project doubles as an educational tool, structured to teach developers how to construct core gameplay loops and modular game systems by uploading educational tutorial videos to Instagram, TikTok, YouTube, and Facebook."
@@ -236,16 +236,16 @@ My work spans <span class="bio-highlight">systems engineering, high-performance 
       ],
       videos: [],
       screenshots: [
-        { caption: "Ramen Abyss", url: "images/RAmenAbyss/ramen_01.gif" },
-        { caption: "Start", url: "images/RAmenAbyss/ramen_12.gif" },
-        { caption: "Door to next Level", url: "images/RAmenAbyss/ramen_03.gif" },
-        { caption: "Fight", url: "images/RAmenAbyss/ramen_04.gif" },
-        { caption: "Intelligent Enemies", url: "images/RAmenAbyss/ramen_05.gif" },
-        { caption: "Multiplayer", url: "images/RAmenAbyss/ramen_06.gif" },
-        { caption: "Procedural Generation", url: "images/RAmenAbyss/ramen_07.gif" },
-        { caption: "Optimization", url: "images/RAmenAbyss/ramen_08.gif" },
-        { caption: "Procedural Animation", url: "images/RAmenAbyss/ramen_10.gif" },
-        { caption: "AI Behavior", url: "images/RAmenAbyss/ramen_11.gif" }
+        { caption: "Ramen Abyss", url: "images/RamenAbyss/ramen_01.gif" },
+        { caption: "Start", url: "images/RamenAbyss/ramen_12.gif" },
+        { caption: "Door to next Level", url: "images/RamenAbyss/ramen_03.gif" },
+        { caption: "Fight", url: "images/RamenAbyss/ramen_04.gif" },
+        { caption: "Intelligent Enemies", url: "images/RamenAbyss/ramen_05.gif" },
+        { caption: "Multiplayer", url: "images/RamenAbyss/ramen_06.gif" },
+        { caption: "Procedural Generation", url: "images/RamenAbyss/ramen_07.gif" },
+        { caption: "Optimization", url: "images/RamenAbyss/ramen_08.gif" },
+        { caption: "Procedural Animation", url: "images/RamenAbyss/ramen_10.gif" },
+        { caption: "AI Behavior", url: "images/RamenAbyss/ramen_11.gif" }
       ]
     },
     {
