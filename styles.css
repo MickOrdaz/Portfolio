@@ -2,8 +2,6 @@
  * MICK ORDAZ - Premium Glassmorphic Portfolio Stylesheet
  * ------------------------------------------------------------- */
 
-/* --- Google Fonts --- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
 
 /* --- Reset & Base Settings --- */
 *, *::before, *::after {
@@ -96,9 +94,19 @@ body {
   background-size: cover;
   background-position: center;
   filter: var(--bg-image-filter);
-  transform: scale(1.08); /* Prevents white blurred edges at viewport boundaries */
+  transform: scale(1.08);
   transition: opacity 1.5s ease, filter 0.5s ease;
   pointer-events: none;
+  overflow: hidden;
+}
+
+.bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
 }
 
 /* --- Base Layout & Wrapper --- */
@@ -329,7 +337,8 @@ section {
   z-index: 10;
 }
 
-.mick-photo img {
+.mick-photo img,
+.mick-photo video {
   display: block;
   width: 145px;
   height: 145px;
@@ -337,7 +346,8 @@ section {
   object-position: center center;
 }
 
-.mick-photo:nth-child(3) img {
+.mick-photo:nth-child(3) img,
+.mick-photo:nth-child(3) video {
   object-position: 80% center;
 }
 
@@ -797,6 +807,7 @@ section {
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow-lg);
   cursor: pointer;
+  margin-bottom: 2rem;
 }
 
 .hc-featured-slider-wrap {
@@ -815,7 +826,8 @@ section {
   opacity: 1;
 }
 
-.hc-featured-slide img {
+.hc-featured-slide img,
+.hc-featured-slide video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -834,7 +846,7 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 2rem 2rem 2rem 4rem;
 }
 
 .hc-featured-content {
@@ -931,6 +943,35 @@ section {
   text-shadow: none;
 }
 
+.hc-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.hc-nav-btn:hover {
+  background: rgba(var(--primary-accent-rgb), 0.55);
+  border-color: var(--primary-accent);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.hc-nav-prev { left: 1rem; }
+.hc-nav-next { right: 1rem; }
+
 .hc-featured-indicators {
   display: flex;
   gap: 0.45rem;
@@ -1009,7 +1050,8 @@ section {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.project-thumb-wrapper img {
+.project-thumb-wrapper img,
+.project-thumb-wrapper video {
   position: absolute;
   top: 0;
   left: 0;
@@ -1019,7 +1061,8 @@ section {
   transition: transform 0.4s ease;
 }
 
-.project-card-item:hover .project-thumb-wrapper img {
+.project-card-item:hover .project-thumb-wrapper img,
+.project-card-item:hover .project-thumb-wrapper video {
   transform: scale(1.05);
 }
 
@@ -1133,6 +1176,7 @@ section {
   object-fit: cover;
   object-position: center 30%;
   transition: transform 0.4s ease;
+  display: block;
 }
 
 .presskit-banner:hover .banner-img {
@@ -1303,7 +1347,8 @@ section {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.screenshot-img-wrapper img {
+.screenshot-img-wrapper img,
+.screenshot-img-wrapper video {
   position: absolute;
   top: 0;
   left: 0;

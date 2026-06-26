@@ -7,6 +7,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const data = PORTFOLIO_DATA;
 
+  function mediaEl(url, alt, cls) {
+    const isVid = /\.mp4$/i.test(url);
+    const clsAttr = cls ? ` class="${cls}"` : "";
+    if (isVid) {
+      return `<video${clsAttr} autoplay loop muted playsinline preload="metadata" src="${url}"></video>`;
+    }
+    return `<img${clsAttr} src="${url}" alt="${alt}" loading="lazy">`;
+  }
+
   // --- UI Translation Dictionaries ---
   const UI_TRANSLATIONS = {
     en: {
@@ -52,41 +61,48 @@ document.addEventListener("DOMContentLoaded", () => {
   document.documentElement.setAttribute("data-theme", currentTheme);
   updateThemeIcon(currentTheme);
 
-  // --- Background Image Slideshow ---
-  // Edit these arrays to change which images/gifs cycle in each theme.
+  // --- Background Image/Video Slideshow ---
   const bgImagesDark = [
-    "images/LAGS2026_Intro_02.gif",
-    "images/CameraChange_01.gif",
-    "images/RamenAbyss/ramen_06.gif",
-    "images/RamenAbyss/ramen_11.gif",
-    "images/LAGS2026_GorillaCrawlers_01.gif",
-    "images/RoomChanges_03.gif",
-    "images/MechaKO/mechako_03.gif",
-    "images/Chrimp/chricken_09.gif",
-    "images/MechaKO/mechako_01.gif",
-    "images/Chrimp/chricken_11.gif",
-    "images/Chrimp/chricken_13.gif",
+    "images/LAGS2026_Intro_02.mp4",
+    "images/CameraChange_01.mp4",
+    "images/RamenAbyss/ramen_06.mp4",
+    "images/RamenAbyss/ramen_11.mp4",
+    "images/LAGS2026_GorillaCrawlers_01.mp4",
+    "images/RoomChanges_03.mp4",
+    "images/MechaKO/mechako_03.mp4",
+    "images/Chrimp/chricken_09.mp4",
+    "images/MechaKO/mechako_01.mp4",
+    "images/Chrimp/chricken_11.mp4",
+    "images/Chrimp/chricken_13.mp4",
   ];
   const bgImagesLight = [
-    "images/LAGS2026_Intro_02.gif",
-    "images/CameraChange_01.gif",
-    "images/RamenAbyss/ramen_06.gif",
-    "images/RamenAbyss/ramen_11.gif",
-    "images/LAGS2026_GorillaCrawlers_01.gif",
-    "images/RoomChanges_03.gif",
-    "images/MechaKO/mechako_03.gif",
-    "images/Chrimp/chricken_09.gif",
-    "images/MechaKO/mechako_01.gif",
-    "images/Chrimp/chricken_11.gif",
-    "images/Chrimp/chricken_13.gif",
+    "images/LAGS2026_Intro_02.mp4",
+    "images/CameraChange_01.mp4",
+    "images/RamenAbyss/ramen_06.mp4",
+    "images/RamenAbyss/ramen_11.mp4",
+    "images/LAGS2026_GorillaCrawlers_01.mp4",
+    "images/RoomChanges_03.mp4",
+    "images/MechaKO/mechako_03.mp4",
+    "images/Chrimp/chricken_09.mp4",
+    "images/MechaKO/mechako_01.mp4",
+    "images/Chrimp/chricken_11.mp4",
+    "images/Chrimp/chricken_13.mp4",
   ];
 
-  // Two layers: B is inserted before A in the DOM so A is always on top at the same z-index.
-  // We alternate fading A/B to create a smooth crossfade without touching z-index.
   const bgLayerA = document.querySelector(".bg-image-overlay");
   const bgLayerB = document.createElement("div");
   bgLayerB.className = "bg-image-overlay";
   bgLayerA.parentNode.insertBefore(bgLayerB, bgLayerA);
+
+  function makeBgVideo() {
+    const v = document.createElement("video");
+    v.className = "bg-video";
+    v.autoplay = true; v.loop = true; v.muted = true;
+    v.setAttribute("playsinline", "");
+    return v;
+  }
+  bgLayerA.appendChild(makeBgVideo());
+  bgLayerB.appendChild(makeBgVideo());
 
   let bgIndex = 0;
   let bgAVisible = true;
@@ -96,27 +112,35 @@ document.addEventListener("DOMContentLoaded", () => {
       ? bgImagesLight : bgImagesDark;
   }
 
-  // Set first image immediately
-  bgLayerA.style.backgroundImage = `url(${getCurrentBgList()[0]})`;
+  function setBgLayer(layer, url) {
+    const vid = layer.querySelector(".bg-video");
+    const isVidUrl = /\.mp4$/i.test(url);
+    if (isVidUrl && vid) {
+      layer.style.backgroundImage = "";
+      vid.style.display = "block";
+      vid.src = url;
+      vid.load();
+      vid.play().catch(() => {});
+    } else {
+      if (vid) { vid.style.display = "none"; vid.src = ""; }
+      layer.style.backgroundImage = `url(${url})`;
+    }
+  }
+
+  setBgLayer(bgLayerA, getCurrentBgList()[0]);
   bgLayerA.style.opacity = "1";
   bgLayerB.style.opacity = "0";
-
-  // Preload all images so transitions are instant
-  [...bgImagesDark, ...bgImagesLight].forEach(src => { new Image().src = src; });
 
   function transitionBg(reset) {
     const images = getCurrentBgList();
     bgIndex = reset ? 0 : (bgIndex + 1) % images.length;
-    const nextUrl = `url(${images[bgIndex]})`;
-
+    const nextUrl = images[bgIndex];
     if (bgAVisible) {
-      // A is on top and visible — fade it out, reveal B underneath
-      bgLayerB.style.backgroundImage = nextUrl;
+      setBgLayer(bgLayerB, nextUrl);
       bgLayerA.style.opacity = "0";
       bgLayerB.style.opacity = "1";
     } else {
-      // B is showing through — fade A back in with new image (A is on top)
-      bgLayerA.style.backgroundImage = nextUrl;
+      setBgLayer(bgLayerA, nextUrl);
       bgLayerA.style.opacity = "1";
       bgLayerB.style.opacity = "0";
     }
@@ -133,13 +157,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function setBgImage(url) {
     clearInterval(bgTimer);
-    const nextUrl = `url(${url})`;
     if (bgAVisible) {
-      bgLayerB.style.backgroundImage = nextUrl;
+      setBgLayer(bgLayerB, url);
       bgLayerA.style.opacity = "0";
       bgLayerB.style.opacity = "1";
     } else {
-      bgLayerA.style.backgroundImage = nextUrl;
+      setBgLayer(bgLayerA, url);
       bgLayerA.style.opacity = "1";
       bgLayerB.style.opacity = "0";
     }
@@ -311,11 +334,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // Render About Gallery
     const galleryEl = document.getElementById("mick-gallery");
     if (galleryEl && profile.galleryImages && profile.galleryImages.length) {
-      galleryEl.innerHTML = profile.galleryImages.map(url => `
-        <div class="mick-photo">
-          <img src="${url}" alt="Mick Ordaz" loading="lazy">
-        </div>
-      `).join("");
+      galleryEl.innerHTML = profile.galleryImages.map(url => {
+        const isVid = /\.mp4$/i.test(url);
+        const media = isVid
+          ? `<video autoplay loop muted playsinline preload="none" src="${url}"></video>`
+          : `<img src="${url}" alt="Mick Ordaz" loading="lazy">`;
+        return `<div class="mick-photo">${media}</div>`;
+      }).join("");
     }
 
     // Render Achievement Spotlight Card
@@ -370,7 +395,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const isActive = idx === 0 ? 'active' : '';
         slidesHtml += `
           <div class="carousel-slide ${isActive}" data-slide-index="${idx}">
-            <img src="${proj.banner}" alt="${proj.title} Banner" class="carousel-slide-img">
+            ${mediaEl(proj.banner, proj.title + " Banner", "carousel-slide-img")}
             <div class="carousel-slide-overlay">
               <span class="carousel-slide-tagline">${proj.category}</span>
               <h3 class="carousel-slide-title">${proj.title}</h3>
@@ -526,17 +551,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const slides = hc.screenshots;
 
-    // Slides use data-src — only the active slide gets a real src to avoid
-    // all GIFs animating simultaneously. Thumbnails are dot indicators, not images.
+    function hcMediaTag(s, eager) {
+      const isVid = /\.mp4$/i.test(s.url);
+      if (isVid) {
+        return eager
+          ? `<video src="${s.url}" autoplay loop muted playsinline></video>`
+          : `<video data-src="${s.url}" loop muted playsinline></video>`;
+      }
+      return eager
+        ? `<img src="${s.url}" alt="${s.caption}">`
+        : `<img data-src="${s.url}" alt="${s.caption}">`;
+    }
+
     container.innerHTML = `
       <div class="hc-featured-card">
         <div class="hc-featured-slider-wrap">
           ${slides.map((s, i) => `
             <div class="hc-featured-slide ${i === 0 ? "active" : ""}">
-              <img ${i === 0 ? `src="${s.url}"` : `data-src="${s.url}"`} alt="${s.caption}">
+              ${hcMediaTag(s, i === 0)}
             </div>
           `).join("")}
         </div>
+        <button class="hc-nav-btn hc-nav-prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="hc-nav-btn hc-nav-next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
         <div class="hc-featured-overlay">
           <div class="hc-featured-content">
             <span class="hc-featured-badge"><i class="fa-solid fa-star"></i> Featured Project</span>
@@ -562,11 +599,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const dotEls   = container.querySelectorAll(".hc-indicator");
 
     function loadSlide(index) {
-      const img = slideEls[index].querySelector("img");
-      if (img.dataset.src) {
-        img.src = img.dataset.src;
-        delete img.dataset.src;
-      }
+      const el = slideEls[index];
+      const media = el.querySelector("[data-src]");
+      if (!media) return;
+      media.src = media.dataset.src;
+      delete media.dataset.src;
+      if (media.tagName === "VIDEO") { media.load(); media.play().catch(() => {}); }
     }
 
     function goToSlide(index) {
@@ -588,8 +626,20 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
+    container.querySelector(".hc-nav-prev").addEventListener("click", (e) => {
+      e.stopPropagation();
+      goToSlide(currentSlide - 1);
+      resetHcTimer();
+    });
+
+    container.querySelector(".hc-nav-next").addEventListener("click", (e) => {
+      e.stopPropagation();
+      goToSlide(currentSlide + 1);
+      resetHcTimer();
+    });
+
     container.querySelector(".hc-featured-card").addEventListener("click", (e) => {
-      if (!e.target.closest("a") && !e.target.closest(".hc-indicator")) {
+      if (!e.target.closest("a") && !e.target.closest(".hc-indicator") && !e.target.closest(".hc-nav-btn")) {
         window.location.hash = `#/project/${hc.id}`;
       }
     });
@@ -622,7 +672,7 @@ document.addEventListener("DOMContentLoaded", () => {
     grid.innerHTML = filtered.map(p => `
       <article class="project-card-item" onclick="window.location.hash='#/project/${p.id}'">
         <div class="project-thumb-wrapper">
-          <img src="${p.thumbnail}" alt="${p.title} Thumbnail" loading="lazy">
+          ${mediaEl(p.thumbnail, p.title + " Thumbnail", "")}
           ${PERSONAL_IDS.has(p.id) ? `<span class="project-card-badge-personal">Personal</span>` : ""}
           <span class="project-card-badge">${p.category}</span>
         </div>
@@ -661,7 +711,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const bannerContainer = document.getElementById("project-banner-container");
     if (bannerContainer) {
       bannerContainer.innerHTML = `
-        <img src="${project.banner}" alt="${project.title} Banner" class="banner-img">
+        ${mediaEl(project.banner, project.title + " Banner", "banner-img")}
         <div class="banner-overlay">
           <h1 class="game-title">${project.title}</h1>
           <p class="game-tagline">${project.tagline}</p>
@@ -763,17 +813,22 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         screenshotsSection.style.display = "block";
         screenshotsGrid.innerHTML = project.screenshots
-          .map((screenshot, idx) => `
-            <div class="screenshot-card" data-index="${idx}">
-              <div class="screenshot-img-wrapper">
-                <img src="${screenshot.url}" alt="${screenshot.caption}" loading="lazy">
-                <div class="screenshot-overlay">
-                  <span class="view-btn"><i class="fa-solid fa-expand"></i> View Fullscreen</span>
+          .map((screenshot, idx) => {
+            const isVid = /\.mp4$/i.test(screenshot.url);
+            const media = isVid
+              ? `<video autoplay loop muted playsinline preload="metadata" src="${screenshot.url}"></video>`
+              : `<img src="${screenshot.url}" alt="${screenshot.caption}" loading="lazy">`;
+            return `
+              <div class="screenshot-card" data-index="${idx}">
+                <div class="screenshot-img-wrapper">
+                  ${media}
+                  <div class="screenshot-overlay">
+                    <span class="view-btn"><i class="fa-solid fa-expand"></i> View Fullscreen</span>
+                  </div>
                 </div>
-              </div>
-              <p class="screenshot-caption">${screenshot.caption}</p>
-            </div>
-          `).join("");
+                <p class="screenshot-caption">${screenshot.caption}</p>
+              </div>`;
+          }).join("");
       }
     }
 
@@ -823,6 +878,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- Screenshot Lightbox / Modal ---
   const modal = document.getElementById("lightbox-modal");
   const modalImg = document.getElementById("modal-img");
+  const modalVideo = document.getElementById("modal-video");
   const modalCaption = document.getElementById("modal-caption");
   const modalDownload = document.getElementById("modal-download");
   const modalPrev = document.getElementById("modal-prev");
@@ -881,10 +937,23 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateLightboxImage() {
     if (activeProjectScreenshots.length === 0) return;
     const screenshot = activeProjectScreenshots[currentImgIndex];
-    modalImg.src = screenshot.url;
+    const url = screenshot.url;
+    const isVid = /\.mp4$/i.test(url);
+    if (isVid) {
+      modalImg.style.display = "none";
+      modalVideo.style.display = "block";
+      modalVideo.src = url;
+      modalVideo.load();
+      modalVideo.play().catch(() => {});
+    } else {
+      modalVideo.style.display = "none";
+      modalVideo.src = "";
+      modalImg.style.display = "block";
+      modalImg.src = url;
+    }
     modalCaption.textContent = screenshot.caption;
-    modalDownload.href = screenshot.url;
-    modalDownload.setAttribute("download", `project_screenshot_${currentImgIndex + 1}.jpg`);
+    modalDownload.href = url;
+    modalDownload.setAttribute("download", `screenshot_${currentImgIndex + 1}`);
   }
 
   function showPrevImage() {

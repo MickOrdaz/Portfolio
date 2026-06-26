@@ -23,10 +23,10 @@ My work spans <span class="bio-highlight">systems engineering, high-performance 
 
     // --- ABOUT GALLERY ---
     galleryImages: [
-      "images/Mick/mick_00.gif",
-      "images/Mick/mick_01.gif",
-      "images/Mick/mick_02.gif",
-      "images/Mick/mick_03.gif"
+      "images/Mick/mick_00.mp4",
+      "images/Mick/mick_01.mp4",
+      "images/Mick/mick_02.mp4",
+      "images/Mick/mick_03.mp4"
     ],
     achievementBanner: "images/Mick/mick_04.png",
     achievementSpotlight: {
@@ -110,15 +110,15 @@ My work spans <span class="bio-highlight">systems engineering, high-performance 
       tagline: "Heaven has taken enough. Time to take it back.",
       role: "Lead Programmer, Co-Director",
       techStack: ["Unity", "C#", "FMOD", "Procedural Generation", "Behavior Trees", "Inverse Kinematics"],
-      banner: "images/LAGS2026_Intro_02.gif",
-      thumbnail: "images/LAGS2026_Intro_02.gif",
+      banner: "images/LAGS2026_Intro_02.mp4",
+      thumbnail: "images/LAGS2026_Intro_02.mp4",
       backgroundImage: "images/Heaven_crawler_STEAM_3_MAIN.png",
       description: {
         short: "Explore, fight, and uncover the secrets of a mysterious tower using unique Mechanical Arms as you climb your way through a deeply personal journey.",
         full: "Heaven Crawler is an action-adventure roguelite dungeon crawler with RPG elements. Help 'the Child' fight his way through The Womb — a colossal Babelian megastructure built to reach the heavens — in order to bring his mother back from the dead. Inside the Tower, he'll be aided by 'the Guide' and friendly robots that upgrade the hub and unveil the Tower's secrets across each run. Wield Mechanical Arms with unique abilities, mix Masks, Magic, Mementos, and Relics into your own build, and use the environment itself — traps, props, reactive elements — to overcome every challenge in your path. Inspired by The Legend of Zelda, NieR, and Fumito Ueda's work. And remember: bring her back."
       },
       links: [
-        { label: "Play on Steam", url: "https://store.steampowered.com/app/3036360/Heaven_Crawler" },
+        { label: "View on Steam", url: "https://store.steampowered.com/app/3036360/Heaven_Crawler" },
         { label: "Press Kit", url: "https://heavencrawler.com/" }
       ],
       awards: [
@@ -149,15 +149,15 @@ My work spans <span class="bio-highlight">systems engineering, high-performance 
         { title: "Teaser Trailer - LAGS 2024", youtubeId: "-A5Z86Qi9-o" }
       ],
       screenshots: [
-        { caption: "Dynamic 3rd Person Camera", url: "images/CameraChange_01.gif" },
-        { caption: "Mechanical Arm-Based Modular Combat", url: "images/LAGS2026_GorillaCrawlers_01.gif" },
-        { caption: "Mix and Match Equipment Systems", url: "images/Bodygear_04.gif" },
-        { caption: "Colossal Mechanical Guardians", url: "images/BossCinematic_04.gif" },
-        { caption: "A Living Liminal Mega Structure", url: "images/RoomChanges_03.gif" },
-        { caption: "Expansive Persistent HUB", url: "images/NPC_02.gif" },
-        { caption: "Stylized Analog Inventory.", url: "images/LAGS2026_Inventory_04.gif" },
-        { caption: "An Emotional Adventure Awaits.", url: "images/LAGS2026_Intro_02.gif" },
         { caption: "Fight", url: "images/HeavenScreenshot_2026-06-02_04-04-21.png" },
+        { caption: "Dynamic 3rd Person Camera", url: "images/CameraChange_01.mp4" },
+        { caption: "Mechanical Arm-Based Modular Combat", url: "images/LAGS2026_GorillaCrawlers_01.mp4" },
+        { caption: "Mix and Match Equipment Systems", url: "images/Bodygear_04.mp4" },
+        { caption: "Colossal Mechanical Guardians", url: "images/BossCinematic_04.mp4" },
+        { caption: "A Living Liminal Mega Structure", url: "images/RoomChanges_03.mp4" },
+        { caption: "Expansive Persistent HUB", url: "images/NPC_02.mp4" },
+        { caption: "Stylized Analog Inventory.", url: "images/LAGS2026_Inventory_04.mp4" },
+        { caption: "An Emotional Adventure Awaits.", url: "images/LAGS2026_Intro_02.mp4" },
         { caption: "Adventure Awaits", url: "images/HeavenScreenshot_2026-06-02_20-24-06.png" },
         { caption: "Shop Room", url: "images/HeavenCrawler_ShopRoom_SS_001.png" },
         { caption: "Dragon Shot", url: "images/dragonshot.png" },
@@ -170,9 +170,9 @@ My work spans <span class="bio-highlight">systems engineering, high-performance 
       tagline: "Your weird little chicken-shrimp pets live on your screen — and they brought minigames.",
       role: "Solo Developer",
       techStack: ["Unity", "C#", "Windows Win32 API", "URP", "Cinemachine", "Unity Behavior", "Inverse Kinematics"],
-      banner: "images/Chrimp/chricken_09.gif",
-      thumbnail: "images/Chrimp/chricken_06.gif",
-      backgroundImage: "images/Chrimp/chricken_06.gif",
+      banner: "images/Chrimp/chricken_09.mp4",
+      thumbnail: "images/Chrimp/chricken_06.mp4",
+      backgroundImage: "images/Chrimp/chricken_06.mp4",
       description: {
         short: "Chrimp are tiny chicken-shrimp hybrids that live directly on your Windows desktop — wandering around, eating, sleeping, and getting into trouble while you work. Drop a toy and suddenly you have a football match happening on top of your spreadsheet.",
         full: "Chrimp is a desktop companion game where your pets don't live inside a window — they live on top of everything. These wobbly little chicken-shrimp creatures walk across your actual screen, nap under your browser tabs, run toward food you drop for them, and react when you poke them. When you're not playing, clicks pass straight through them — they're just there, keeping you company. But drop a toy and chaos begins. A Toy Flag turns your Chrimpinto an armed garrison defending against zombie waves, picking up machine guns that fall from the sky. A football spawns goal posts at the edges of your monitor and they immediately start competing. A bomb appears with a burning fuse and they frantically pass it to each other, panicking until it explodes and sends everyone flying. Put on a Radio and they dance to whatever your PC is playing. Every Chrimp hatches from an egg, grows up, and can be a rare species — from the common little guy all the way to the legendary Ghost or Gilded. Keep them happy and fed, or if you're low on coins, there's always the Kitchen Pot."
@@ -196,15 +196,15 @@ My work spans <span class="bio-highlight">systems engineering, high-performance 
       ],
       videos: [],
       screenshots: [
-        { caption: "Zoombie Waves", url: "images/Chrimp/chricken_11.gif" },
+        { caption: "Zoombie Waves", url: "images/Chrimp/chricken_11.mp4" },
         { caption: "Hanging Around", url: "images/Chrimp/chricken_00.png" },
         { caption: "Menu & Food", url: "images/Chrimp/chricken_02.png" },
         { caption: "Eating", url: "images/Chrimp/chricken_03.png" },
-        { caption: "Dance when Music Plays", url: "images/Chrimp/chricken_06.gif" },
-        { caption: "Football Match!", url: "images/Chrimp/chricken_07.gif" },
-        { caption: "Balloon minigame", url: "images/Chrimp/chricken_09.gif" },
-        { caption: "Cooking for coins", url: "images/Chrimp/chricken_10.gif" },
-        { caption: "Chicken AI", url: "images/Chrimp/chricken_13.gif" }
+        { caption: "Dance when Music Plays", url: "images/Chrimp/chricken_06.mp4" },
+        { caption: "Football Match!", url: "images/Chrimp/chricken_07.mp4" },
+        { caption: "Balloon minigame", url: "images/Chrimp/chricken_09.mp4" },
+        { caption: "Cooking for coins", url: "images/Chrimp/chricken_10.mp4" },
+        { caption: "Chicken AI", url: "images/Chrimp/chricken_13.mp4" }
       ]
     },
     {
@@ -214,9 +214,9 @@ My work spans <span class="bio-highlight">systems engineering, high-performance 
       tagline: "Local co-op roguelike built in Unity 6 with wobbly physics and procedural animation systems.",
       role: "Solo Developer",
       techStack: ["Unity", "C#", "Multiplayer", "Procedural Animation"],
-      banner: "images/RamenAbyss/ramen_06.gif",
-      thumbnail: "images/RamenAbyss/ramen_06.gif",
-      backgroundImage: "images/RamenAbyss/ramen_06.gif",
+      banner: "images/RamenAbyss/ramen_06.mp4",
+      thumbnail: "images/RamenAbyss/ramen_06.mp4",
+      backgroundImage: "images/RamenAbyss/ramen_06.mp4",
       description: {
         short: "Control a wobbly boiled egg in a local co-op roguelike. Structured as an educational project with tutorial videos uploaded to TikTok, Instagram, YouTube, and Facebook.",
         full: "Ramen Abyss is a top-down, local 2-player co-op roguelike built in Unity 6 targeting Steam, Itch, Android, and iOS. Players control a custom-built, horn-adorned soft-boiled egg featuring wobbly physics and procedurally animated limbs. Wielding three weapon categories (Pierce, Sharp, and Blunt), players descend into a randomly generated ramen cup to slay ingredient-themed monsters (like Pea Slimes and Pork Knights) across four distinct zones (Pork Plains, Seafood Depths, Inferno Bowl, and Abyssal Broth). The game features deep upgrades, perk shrines, and Narutomaki Coin meta-progression to unlock skins. The project doubles as an educational tool, structured to teach developers how to construct core gameplay loops and modular game systems by uploading educational tutorial videos to Instagram, TikTok, YouTube, and Facebook."
@@ -236,16 +236,16 @@ My work spans <span class="bio-highlight">systems engineering, high-performance 
       ],
       videos: [],
       screenshots: [
-        { caption: "Ramen Abyss", url: "images/RamenAbyss/ramen_01.gif" },
-        { caption: "Start", url: "images/RamenAbyss/ramen_12.gif" },
-        { caption: "Door to next Level", url: "images/RamenAbyss/ramen_03.gif" },
-        { caption: "Fight", url: "images/RamenAbyss/ramen_04.gif" },
-        { caption: "Intelligent Enemies", url: "images/RamenAbyss/ramen_05.gif" },
-        { caption: "Multiplayer", url: "images/RamenAbyss/ramen_06.gif" },
-        { caption: "Procedural Generation", url: "images/RamenAbyss/ramen_07.gif" },
-        { caption: "Optimization", url: "images/RamenAbyss/ramen_08.gif" },
-        { caption: "Procedural Animation", url: "images/RamenAbyss/ramen_10.gif" },
-        { caption: "AI Behavior", url: "images/RamenAbyss/ramen_11.gif" }
+        { caption: "Ramen Abyss", url: "images/RamenAbyss/ramen_01.mp4" },
+        { caption: "Start", url: "images/RamenAbyss/ramen_12.mp4" },
+        { caption: "Door to next Level", url: "images/RamenAbyss/ramen_03.mp4" },
+        { caption: "Fight", url: "images/RamenAbyss/ramen_04.mp4" },
+        { caption: "Intelligent Enemies", url: "images/RamenAbyss/ramen_05.mp4" },
+        { caption: "Multiplayer", url: "images/RamenAbyss/ramen_06.mp4" },
+        { caption: "Procedural Generation", url: "images/RamenAbyss/ramen_07.mp4" },
+        { caption: "Optimization", url: "images/RamenAbyss/ramen_08.mp4" },
+        { caption: "Procedural Animation", url: "images/RamenAbyss/ramen_10.mp4" },
+        { caption: "AI Behavior", url: "images/RamenAbyss/ramen_11.mp4" }
       ]
     },
     {
@@ -255,9 +255,9 @@ My work spans <span class="bio-highlight">systems engineering, high-performance 
       tagline: "A custom C++ 3D Game Engine with live Omniverse scene synchronization.",
       role: "Solo Engine Developer",
       techStack: ["C++", "OpenGL", "DirectX", "Nvidia Omniverse API", "PhysX"],
-      banner: "images/Vivarium/vivarium_06.gif",
-      thumbnail: "images/Vivarium/vivarium_06.gif",
-      backgroundImage: "images/Vivarium/vivarium_06.gif",
+      banner: "images/Vivarium/vivarium_06.mp4",
+      thumbnail: "images/Vivarium/vivarium_06.mp4",
+      backgroundImage: "images/Vivarium/vivarium_06.mp4",
       description: {
         short: "A C++ game engine featuring deferred rendering, VR support, and live multi-client scene sync.",
         full: "Vivarium Engine is a custom-built 3D game engine developed as a university thesis project. Built in C++, it features OpenGL deferred rendering, PBR shading, PhysX integration, VR capabilities, and a NavMesh baker. It features a custom Nvidia Omniverse Connector, allowing multiple clients to edit and sync 3D scene data in real-time. Showcased at the Nvidia GTC 2021 conference."
@@ -282,10 +282,10 @@ My work spans <span class="bio-highlight">systems engineering, high-performance 
       ],
       videos: [{ title: "Nvidia GTC 2021", youtubeId: "wdspUbtnLtA" }],
       screenshots: [
-        { caption: "Vivarium Engine", url: "images/Vivarium/vivarium_06.gif" },
-        { caption: "Live synchronization with another client", url: "images/Vivarium/vivarium_07.gif" },
-        { caption: "Share Physics Multipe Clients Online", url: "images/Vivarium/vivarium_01.gif" },
-        { caption: "Live sync with the Create App", url: "images/Vivarium/vivarium_03.gif" },
+        { caption: "Vivarium Engine", url: "images/Vivarium/vivarium_06.mp4" },
+        { caption: "Live synchronization with another client", url: "images/Vivarium/vivarium_07.mp4" },
+        { caption: "Share Physics Multipe Clients Online", url: "images/Vivarium/vivarium_01.mp4" },
+        { caption: "Live sync with the Create App", url: "images/Vivarium/vivarium_03.mp4" },
       ]
     },
     {
@@ -295,8 +295,8 @@ My work spans <span class="bio-highlight">systems engineering, high-performance 
       tagline: "A boxing game where your arms are machines — and they fall apart mid-fight.",
       role: "Lead Gameplay & Tech Programmer",
       techStack: ["Unity", "C#", "URP", "Cel Shading"],
-      banner: "images/MechaKO/mechako_03.gif",
-      thumbnail: "images/MechaKO/mechako_03.gif",
+      banner: "images/MechaKO/mechako_03.mp4",
+      thumbnail: "images/MechaKO/mechako_03.mp4",
       backgroundImage: "images/MechaKO/mechako_00.png",
       description: {
         short: "A real-time 3D anime-style boxing game where fighters wield giant mechanical arms that physically break apart during combat — and must be repaired or upgraded between bouts.",
@@ -314,12 +314,12 @@ My work spans <span class="bio-highlight">systems engineering, high-performance 
       ],
       videos: [],
       screenshots: [
-        { caption: "", url: "images/MechaKO/mechako_01.gif" },
-        { caption: "", url: "images/MechaKO/mechako_02.gif" },
-        { caption: "", url: "images/MechaKO/mechako_03.gif" },
-        { caption: "", url: "images/MechaKO/mechako_04.gif" },
-        { caption: "", url: "images/MechaKO/mechako_05.gif" },
-        { caption: "", url: "images/MechaKO/mechako_06.gif" },
+        { caption: "", url: "images/MechaKO/mechako_01.mp4" },
+        { caption: "", url: "images/MechaKO/mechako_02.mp4" },
+        { caption: "", url: "images/MechaKO/mechako_03.mp4" },
+        { caption: "", url: "images/MechaKO/mechako_04.mp4" },
+        { caption: "", url: "images/MechaKO/mechako_05.mp4" },
+        { caption: "", url: "images/MechaKO/mechako_06.mp4" },
 
       ]
     },
@@ -353,11 +353,11 @@ My work spans <span class="bio-highlight">systems engineering, high-performance 
       screenshots: [
         { caption: "", url: "images/AmericanTrail/trail_07.png" },
         { caption: "", url: "images/AmericanTrail/trail_06.png" },
-        { caption: "", url: "images/AmericanTrail/trail_01.gif" },
-        { caption: "", url: "images/AmericanTrail/trail_02.gif" },
-        { caption: "", url: "images/AmericanTrail/trail_03.gif" },
-        { caption: "", url: "images/AmericanTrail/trail_04.gif" },
-        { caption: "", url: "images/AmericanTrail/trail_05.gif" },
+        { caption: "", url: "images/AmericanTrail/trail_01.mp4" },
+        { caption: "", url: "images/AmericanTrail/trail_02.mp4" },
+        { caption: "", url: "images/AmericanTrail/trail_03.mp4" },
+        { caption: "", url: "images/AmericanTrail/trail_04.mp4" },
+        { caption: "", url: "images/AmericanTrail/trail_05.mp4" },
       ]
     },
     {
@@ -388,7 +388,7 @@ My work spans <span class="bio-highlight">systems engineering, high-performance 
       videos: [],
       screenshots: [
         { caption: "Skate & Slash", url: "images/Skate&Slash/skate_00.png" },
-        { caption: "Skate & Slash", url: "images/Skate&Slash/skate_01.gif" },
+        { caption: "Skate & Slash", url: "images/Skate&Slash/skate_01.mp4" },
         { caption: "Skate & Slash", url: "images/Skate&Slash/skate_02.png" },
         { caption: "Skate & Slash", url: "images/Skate&Slash/skate_03.png" },
         { caption: "Skate & Slash", url: "images/Skate&Slash/skate_04.png" },
@@ -421,7 +421,7 @@ My work spans <span class="bio-highlight">systems engineering, high-performance 
       ],
       videos: [],
       screenshots: [
-        { caption: "Sprinter Slayer Gameplay", url: "images/SprinterSlayer/Sprinter_01.gif" },
+        { caption: "Sprinter Slayer Gameplay", url: "images/SprinterSlayer/Sprinter_01.mp4" },
         { caption: "Sprinter Slayer Gameplay", url: "images/SprinterSlayer/Sprinter_02.png" },
         { caption: "Sprinter Slayer Gameplay", url: "images/SprinterSlayer/Sprinter_03.png" },
         { caption: "Sprinter Slayer Gameplay", url: "images/SprinterSlayer/Sprinter_04.png" }

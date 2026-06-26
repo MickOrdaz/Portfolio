@@ -27,12 +27,15 @@
   <!-- Apple Touch Icon (home screen shortcut on iOS) -->
   <link rel="apple-touch-icon" href="images/mick_pp2.png">
 
-  <!-- Google Fonts preconnect (speeds up font load) -->
+  <!-- Google Fonts — preconnect + async load so it doesn't block first paint -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"></noscript>
 
-  <!-- FontAwesome for Premium Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- FontAwesome — loaded async so it doesn't block first paint -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/mick_pp2.png">
@@ -82,7 +85,7 @@
         <aside class="profile-card section-card">
           <div class="profile-header">
             <div class="avatar-container">
-              <img id="profile-avatar" src="" alt="Juan Miguel Cerda Ordaz Profile Picture">
+              <img id="profile-avatar" src="" alt="Juan Miguel Cerda Ordaz Profile Picture" fetchpriority="high">
             </div>
             <h1 class="profile-name" id="profile-name">Juan Miguel Cerda Ordaz</h1>
             <p class="profile-tagline" id="profile-tagline">Software Engineer | Technical Lead</p>
@@ -317,6 +320,7 @@
     
     <div class="lightbox-content">
       <img id="modal-img" src="" alt="Enlarged screenshot">
+      <video id="modal-video" autoplay loop muted playsinline style="display:none;max-width:100%;max-height:80vh;"></video>
     </div>
     
     <div class="lightbox-caption" id="modal-caption">Caption goes here.</div>
