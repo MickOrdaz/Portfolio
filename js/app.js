@@ -191,7 +191,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const bgImagesDark = [
     "images/LAGS2026_Intro_02.mp4",
     "images/CameraChange_01.mp4",
-    "images/RamenAbyss/ramen_01.mp4",
     "images/RamenAbyss/ramen_06.mp4",
     "images/RamenAbyss/ramen_11.mp4",
     "images/RoomChanges_03.mp4",
@@ -201,7 +200,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const bgImagesLight = [
     "images/LAGS2026_Intro_02.mp4",
     "images/CameraChange_01.mp4",
-    "images/RamenAbyss/ramen_01.mp4",
     "images/RamenAbyss/ramen_06.mp4",
     "images/RamenAbyss/ramen_11.mp4",
     "images/RoomChanges_03.mp4",
@@ -747,7 +745,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const hc = data.projects.find(p => p.id === "heaven-crawler");
     if (!hc || !hc.screenshots.length) return;
 
-    const slides = hc.screenshots;
+    const slides = hc.featuredSlides || hc.screenshots;
 
     function hcMediaTag(s, eager) {
       const isVid = /\.mp4$/i.test(s.url);

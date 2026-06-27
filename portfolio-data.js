@@ -149,6 +149,14 @@ Let's work together — if you can imagine it, I can make it real.`,
         { date: "October 2025", description: "Wins the Grand Prize at the Supernova Game Devs Challenge by unanimous decision." },
         { date: "June 2026", description: "Kickstarter campaign launched to fund final release stages." }
       ],
+      featuredSlides: [
+        { caption: "An Emotional Adventure Awaits.", url: "images/LAGS2026_Intro_02.mp4" },
+        { caption: "Mechanical Arm-Based Modular Combat", url: "images/LAGS2026_GorillaCrawlers_01.mp4" },
+        { caption: "Colossal Mechanical Guardians", url: "images/BossCinematic_04.mp4" },
+        { caption: "A Living Liminal Mega Structure", url: "images/RoomChanges_03.mp4" },
+        { caption: "Mix and Match Equipment Systems", url: "images/Bodygear_04.mp4" },
+        { caption: "Action Combat", url: "images/HeavenScreenshot_2026-06-02_04-04-21.png" },
+      ],
       videos: [
         { title: "Kickstarter Announcement Trailer - LAGS 2026", youtubeId: "_GxUC5dlLF4" },
         { title: "Teaser Trailer - LAGS 2024", youtubeId: "-A5Z86Qi9-o" }
