@@ -1,0 +1,42 @@
+# Juan Miguel Cerda Ordaz (Mick Ordaz)
+
+> Game Development Engineer, Technical Lead & Co-Director. Creator of Heaven Crawler, Grand Prize winner at the Supernova Devs Challenge 2025, showcased at Gamescom. 7+ years building games and software in Unity and C#.
+
+## About
+
+Juan Miguel Cerda Ordaz (Mick Ordaz) is a Game Development Engineer based in Mexico. He is the founder of Critical Slash (independent game studio) and Lead Programmer & Co-Director at Carbon Machina Studio. He has shipped games and software on iOS, Android, PC (Steam), Apple Vision Pro, and the web. His background spans Unity game development, C++ engine programming, full-stack web development, and production agentic AI systems (LangGraph, Claude API, MCP integrations).
+
+## Key Achievements
+
+- Grand Prize, Supernova Devs Challenge 2025 (unanimous jury) — Heaven Crawler
+- Official showcase at Gamescom 2025 and Latin American Game Showcase — Heaven Crawler
+- Most Anticipated Game Nominee, Game Effect Awards 2025 — Heaven Crawler
+- Official Indie Showcase, Mexican Entertainment System 2025-2026 — Heaven Crawler
+- Featured Developer at Nvidia GTC 2021 — Vivarium Engine
+- Featured on Nvidia developer blog — Vivarium Engine
+
+## Projects
+
+- [Heaven Crawler](https://mickordaz.github.io/Portfolio/#/project/heaven-crawler): Action-adventure roguelite dungeon crawler built in Unity over 6 years. Grand Prize 2025. Active Steam demo with organic community traction.
+- [Chrimp Desktop Pet](https://mickordaz.github.io/Portfolio/#/project/chicken-desktop-pet): Desktop companion game using Win32 API for transparent always-on-top overlay, full IK rig, five AI-driven minigames. Coming to Steam.
+- [Mecha K.O.](https://mickordaz.github.io/Portfolio/#/project/mecha-ko): Real-time 3D boxing game with structural destruction in Unity. Arms physically break apart — destruction is the health system.
+- [Ramen Abyss](https://mickordaz.github.io/Portfolio/#/project/ramen-abyss): Local co-op roguelike with procedural animation built in Unity 6.
+- [Mental Chat AI](https://mickordaz.github.io/Portfolio/#/project/mental-chat): AI communication companion built in Unity, shipped on iOS, Android, and Apple Vision Pro. Real-time 3D avatars with facial animation and lip-sync.
+- [Biogame AI](https://mickordaz.github.io/Portfolio/#/project/biogame): Production SaaS multi-agent LLM platform for biomedical research. Lab Director AI orchestrates specialized sub-agents across 8+ live biomedical databases. Live at biogame.ai.
+- [Doppelbio](https://mickordaz.github.io/Portfolio/#/project/doppelbio): Multi-agent AI research automation platform. Real-time WebSocket agent collaboration for drug discovery, structural biology, and literature review.
+- [Minicule](https://mickordaz.github.io/Portfolio/#/project/minicule): Biomedical research platform with AI-powered interactive knowledge graphs and dendrograms. Live at minicule.com.
+- [Docs Slayer](https://mickordaz.github.io/Portfolio/#/project/docs-slayer): AI documentation engine for game studios — connects to GitHub, deep-scans source code, generates living docs. Live in closed beta.
+- [Vivarium Engine](https://mickordaz.github.io/Portfolio/#/project/vivarium-engine): Custom C++ 3D engine with deferred PBR rendering, PhysX, VR, NavMesh baking, and live Nvidia Omniverse multi-client sync. Featured at Nvidia GTC 2021.
+- [Cyberdogz](https://mickordaz.github.io/Portfolio/#/project/cyberdogz): 3D online multiplayer space shooter built with Photon Networking.
+- [SOLBAG](https://mickordaz.github.io/Portfolio/#/project/solbag): WebXR multiplayer experience built with Niantic 8th Wall.
+
+## Skills
+
+Unity, C#, C++, Python, JavaScript, TypeScript, React, Three.js, FastAPI, Node.js, LangGraph, Claude API, Gemini AI, Neo4j, ChromaDB, Firebase, Docker, iOS, Android, visionOS, WebXR, Agile/Scrum, Behavior Trees, Procedural Generation, Inverse Kinematics, OpenGL, DirectX, Nvidia Omniverse
+
+## Contact
+
+- Portfolio: https://mickordaz.github.io/Portfolio/
+- Email: mickordaz@gmail.com
+- LinkedIn: https://linkedin.com/in/juan-miguel-cerda-ordaz
+- GitHub: https://github.com/mickordaz
