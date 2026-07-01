@@ -7,13 +7,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let data = PORTFOLIO_DATA;
 
-  function mediaEl(url, alt, cls) {
+  function mediaEl(url, alt, cls, eager = false) {
     const isVid = /\.mp4$/i.test(url);
     const clsAttr = cls ? ` class="${cls}"` : "";
     if (isVid) {
+      if (eager) {
+        return `<video${clsAttr} autoplay loop muted playsinline src="${url}"></video>`;
+      }
       return `<video${clsAttr} autoplay loop muted playsinline preload="none" data-src="${url}"></video>`;
     }
-    return `<img${clsAttr} src="${url}" alt="${alt}" loading="lazy">`;
+    return `<img${clsAttr} src="${url}" alt="${alt}" loading="${eager ? 'eager' : 'lazy'}">`;
   }
 
   function initLazyVideos() {
@@ -582,7 +585,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const isActive = idx === 0 ? 'active' : '';
         slidesHtml += `
           <div class="carousel-slide ${isActive}" data-slide-index="${idx}">
-            ${mediaEl(proj.banner, proj.title + " Banner", "carousel-slide-img")}
+            ${mediaEl(proj.banner, proj.title + " Banner", "carousel-slide-img", idx === 0)}
             <div class="carousel-slide-overlay">
               <span class="carousel-slide-tagline">${proj.category}</span>
               <h3 class="carousel-slide-title">${proj.title}</h3>
@@ -665,6 +668,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
       slides[currentIndex].classList.add("active");
       dots[currentIndex].classList.add("active");
+
+      const video = slides[currentIndex].querySelector("video[data-src]");
+      if (video) {
+        video.src = video.dataset.src;
+        video.load();
+        video.play().catch(() => {});
+      }
 
       const wrapper = document.querySelector(".carousel-slides-wrapper");
       if (wrapper) {
