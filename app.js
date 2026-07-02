@@ -501,8 +501,8 @@ const CAPABILITIES = [
     projectId: 'heaven-crawler',
   },
   {
-    label: 'Real-Time Combat & Gamefeel',
-    sub: 'Fast, physical, readable. Combat where every hit lands with weight, feedback, and consequence — the damage you see IS the health system.',
+    label: 'Core Gameplay & Gamefeel',
+    sub: 'The invisible craft that makes a game feel good to play: responsive controls, weighty hit-stops, screenshake, and juice. I build the core gameplay systems and obsess over the feel of every single interaction.',
     media: 'images/MechaKO/mechako_03.mp4',
     projectId: 'mecha-ko',
   },
@@ -1100,6 +1100,111 @@ function initFadeObserver() {
   document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
 }
 
+/* ── INSTAGRAM REELS ──
+   Paste public Instagram Reel/post URLs below (e.g. https://www.instagram.com/reel/XXXXXXX/).
+   The section auto-hides while this list is empty. */
+const REELS = [
+  'https://www.instagram.com/reel/DTFBA02k7Y0/',
+  'https://www.instagram.com/reel/DTNUCdWk44P/',
+  'https://www.instagram.com/reel/DTRLiJmE7Hp/',
+];
+
+function buildInstagram() {
+  const section = document.getElementById('instagram');
+  const grid = document.getElementById('instagramGrid');
+  if (!section || !grid) return;
+  if (!REELS.length) { section.style.display = 'none'; return; }
+  grid.innerHTML = REELS.map(url => {
+    const clean = url.split('?')[0].replace(/\/+$/, '');
+    return `<div class="ig-embed"><iframe src="${clean}/embed" loading="lazy" frameborder="0" scrolling="no" allowtransparency="true" allowfullscreen></iframe></div>`;
+  }).join('');
+  initInstagramCarousel();
+}
+
+/* Coverflow carousel: center reel full-size, sides smaller; draggable slide bar. */
+function initInstagramCarousel() {
+  const grid = document.getElementById('instagramGrid');
+  const slider = document.getElementById('igSlider');
+  if (!grid) return;
+  const items = Array.from(grid.querySelectorAll('.ig-embed'));
+  if (!items.length) return;
+
+  function setPad() {
+    const p = Math.max((grid.clientWidth - items[0].clientWidth) / 2, 12);
+    grid.style.paddingLeft = grid.style.paddingRight = p + 'px';
+  }
+
+  let ticking = false;
+  function update() {
+    ticking = false;
+    const gridRect = grid.getBoundingClientRect();
+    const centerX = gridRect.left + gridRect.width / 2;
+    let closest = null, closestDist = Infinity;
+    items.forEach(it => {
+      const r = it.getBoundingClientRect();
+      const d = Math.abs((r.left + r.width / 2) - centerX);
+      if (d < closestDist) { closestDist = d; closest = it; }
+    });
+    items.forEach(it => it.classList.toggle('is-center', it === closest));
+    const max = grid.scrollWidth - grid.clientWidth;
+    if (slider && document.activeElement !== slider) {
+      slider.value = max > 0 ? (grid.scrollLeft / max) * 100 : 0;
+    }
+  }
+  function onScroll() {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }
+
+  let userInteracted = false;
+  function centerMiddle() {
+    if (userInteracted) return;
+    setPad();
+    const mid = items[Math.floor(items.length / 2)];
+    const gridRect = grid.getBoundingClientRect();
+    const midRect = mid.getBoundingClientRect();
+    grid.scrollLeft += (midRect.left + midRect.width / 2) - (gridRect.left + gridRect.width / 2);
+    update();
+  }
+
+  function currentIndex() {
+    const i = items.findIndex(it => it.classList.contains('is-center'));
+    return i < 0 ? Math.floor(items.length / 2) : i;
+  }
+  function scrollToIndex(i) {
+    const it = items[Math.max(0, Math.min(items.length - 1, i))];
+    const gridRect = grid.getBoundingClientRect();
+    const itRect = it.getBoundingClientRect();
+    grid.scrollTo({
+      left: grid.scrollLeft + (itRect.left + itRect.width / 2) - (gridRect.left + gridRect.width / 2),
+      behavior: 'smooth',
+    });
+  }
+
+  const prevBtn = document.getElementById('igPrev');
+  const nextBtn = document.getElementById('igNext');
+  if (prevBtn) prevBtn.addEventListener('click', () => { userInteracted = true; scrollToIndex(currentIndex() - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { userInteracted = true; scrollToIndex(currentIndex() + 1); });
+
+  ['pointerdown', 'touchstart', 'wheel', 'keydown'].forEach(ev =>
+    grid.addEventListener(ev, () => { userInteracted = true; }, { passive: true }));
+
+  grid.addEventListener('scroll', onScroll, { passive: true });
+  if (slider) {
+    slider.addEventListener('input', () => {
+      userInteracted = true;
+      const max = grid.scrollWidth - grid.clientWidth;
+      grid.scrollLeft = (slider.value / 100) * max;
+    });
+  }
+  window.addEventListener('resize', () => { setPad(); update(); });
+  window.addEventListener('load', centerMiddle);
+
+  // Instagram iframes load async and can scroll the row; re-assert center.
+  grid.querySelectorAll('iframe').forEach(f =>
+    f.addEventListener('load', () => setTimeout(centerMiddle, 60)));
+  [0, 250, 700, 1400].forEach(t => setTimeout(centerMiddle, t));
+}
+
 /* ── VIDEO PLAYBACK MANAGER ──
    Pauses autoplaying videos when they scroll out of view so the browser
    isn't decoding a dozen clips at once (major scroll-jank source). */
@@ -1145,6 +1250,7 @@ document.addEventListener('DOMContentLoaded', () => {
   buildAchievements();
   buildSkills();
   buildTimeline();
+  buildInstagram();
   initFadeObserver();
   initSmoothScroll();
   initVideoPlayback();

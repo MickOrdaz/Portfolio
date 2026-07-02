@@ -98,7 +98,6 @@
     </div>
     <div class="hero__overlay"></div>
     <div class="hero__content">
-      <p class="hero__eyebrow">Game Dev Engineer · Technical Lead</p>
       <h1 class="hero__name">MICK<br>ORDAZ</h1>
       <p class="hero__tagline">Game Development Engineer &nbsp;·&nbsp; Software Engineer &nbsp;·&nbsp; Technical Lead</p>
       <div class="hero__ctas">
@@ -200,6 +199,46 @@
     </div>
   </section>
 
+  <!-- ===== INSTAGRAM / TEACHING ===== -->
+  <section id="instagram" class="instagram section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">Beyond the Code</span>
+        <h2 class="section-title">Sharing knowledge on Instagram</h2>
+        <p class="section-lead">I share game development tips, engineering knowledge, prototypes, and fun experiments with the dev community. Here are a few recent ones.</p>
+      </div>
+      <div class="instagram__carousel">
+        <button class="ig-arrow ig-arrow--prev" id="igPrev" aria-label="Previous reel">‹</button>
+        <div class="instagram__grid" id="instagramGrid">
+          <!-- Populated by app.js -->
+        </div>
+        <button class="ig-arrow ig-arrow--next" id="igNext" aria-label="Next reel">›</button>
+      </div>
+      <input type="range" class="ig-slider" id="igSlider" min="0" max="100" value="0" aria-label="Slide through Instagram reels" />
+      <div class="instagram__cta fade-in">
+        <a href="https://www.instagram.com/critical.slash/" target="_blank" rel="noopener" class="btn btn--ghost">Follow @critical.slash →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ALL PROJECTS CATALOG ===== -->
+  <section id="projects" class="projects section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">Full Catalog</span>
+        <h2 class="section-title">All Projects</h2>
+      </div>
+      <div class="filter-tabs fade-in" id="filterTabs">
+        <button class="filter-tab active" data-filter="all">All</button>
+        <button class="filter-tab" data-filter="games">Games</button>
+        <button class="filter-tab" data-filter="tools">Tools &amp; Engines</button>
+      </div>
+      <div class="projects__grid" id="projectsGrid">
+        <!-- Populated by app.js -->
+      </div>
+    </div>
+  </section>
+
   <!-- ===== SKILLS ===== -->
   <section id="skills" class="skills section">
     <div class="container">
@@ -221,24 +260,6 @@
         <h2 class="section-title">Experience</h2>
       </div>
       <div class="timeline" id="timeline">
-        <!-- Populated by app.js -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ALL PROJECTS CATALOG ===== -->
-  <section id="projects" class="projects section">
-    <div class="container">
-      <div class="section-header fade-in">
-        <span class="section-label">Full Catalog</span>
-        <h2 class="section-title">All Projects</h2>
-      </div>
-      <div class="filter-tabs fade-in" id="filterTabs">
-        <button class="filter-tab active" data-filter="all">All</button>
-        <button class="filter-tab" data-filter="games">Games</button>
-        <button class="filter-tab" data-filter="tools">Tools &amp; Engines</button>
-      </div>
-      <div class="projects__grid" id="projectsGrid">
         <!-- Populated by app.js -->
       </div>
     </div>
