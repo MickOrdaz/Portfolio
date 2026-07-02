@@ -558,7 +558,7 @@ const ACHIEVEMENTS = [
   { icon: '🏆', title: 'Grand Prize · Supernova Game Devs Challenge 2025', sub: '$500,000 MXN prize · Heaven Crawler' },
   { icon: '🎮', title: 'Gamescom Showcase 2025', sub: 'Heaven Crawler selected for international showcase' },
   { icon: '🎯', title: 'Most Anticipated Game Nominee', sub: 'Game Effect Awards 2025' },
-  { icon: '💻', title: 'Featured Developer · Nvidia GTC 2021', sub: 'Vivarium Engine showcased to 50k+ developers' },
+  { icon: '💻', title: 'Featured Developer · Nvidia GTC 2021', sub: 'Vivarium Engine showcased at Nvidia\'s developer conference' },
   { icon: '🎓', title: 'Technical Speaker · Jalisco Talent Land 2023', sub: 'Game dev talk to thousands of students' },
   { icon: '🌟', title: 'Official Indie Showcase · Mexican Entertainment System', sub: '2025–2026 official selection' },
 ];
