@@ -469,29 +469,15 @@ em { font-style: italic; }
   width: 540px; height: 540px;
   background: radial-gradient(circle, rgba(0, 229, 255, 0.22), transparent 70%);
   top: 8%; left: -180px;
-  animation: capFloat1 20s ease-in-out infinite;
 }
 .capabilities::after {
   width: 600px; height: 600px;
   background: radial-gradient(circle, rgba(124, 58, 237, 0.22), transparent 70%);
   bottom: 6%; right: -200px;
-  animation: capFloat2 26s ease-in-out infinite;
 }
 .capabilities > .container {
   position: relative;
   z-index: 1;
-}
-@keyframes capFloat1 {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(70px, -50px); }
-}
-@keyframes capFloat2 {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(-60px, 45px); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .capabilities::before,
-  .capabilities::after { animation: none; }
 }
 .cap-banner {
   position: relative;

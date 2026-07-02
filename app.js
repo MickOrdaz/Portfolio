@@ -40,7 +40,6 @@ const PROJECTS = [
       'images/LAGS2026_GorillaCrawlers_01.mp4',
       'images/BossCinematic_04.mp4',
       'images/RoomChanges_03.mp4',
-      'images/Bodygear_04.mp4',
       'images/CameraChange_01.mp4',
       'images/NPC_02.mp4',
       'images/LAGS2026_Inventory_04.mp4',
@@ -1101,6 +1100,27 @@ function initFadeObserver() {
   document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
 }
 
+/* ── VIDEO PLAYBACK MANAGER ──
+   Pauses autoplaying videos when they scroll out of view so the browser
+   isn't decoding a dozen clips at once (major scroll-jank source). */
+
+function initVideoPlayback() {
+  const managed = document.querySelectorAll('.mick-photo video, .cap-media-el, .hero__video');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const v = entry.target;
+      if (entry.isIntersecting) {
+        // For the hero, only play the currently visible (active) layer.
+        if (v.classList.contains('hero__video') && !v.classList.contains('is-active')) return;
+        if (v.src || v.currentSrc) v.play().catch(() => {});
+      } else if (!v.paused) {
+        v.pause();
+      }
+    });
+  }, { rootMargin: '150px 0px', threshold: 0.01 });
+  managed.forEach(v => io.observe(v));
+}
+
 /* ── SMOOTH SCROLL ── */
 
 function initSmoothScroll() {
@@ -1127,4 +1147,5 @@ document.addEventListener('DOMContentLoaded', () => {
   buildTimeline();
   initFadeObserver();
   initSmoothScroll();
+  initVideoPlayback();
 });
