@@ -8,6 +8,8 @@ desktop.ini
 .idea/
 *.swp
 *.swo
+.claude/
+CLAUDE.md
 
 # Scratchpad / temp
 *.tmp

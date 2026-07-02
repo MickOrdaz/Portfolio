@@ -1,42 +1,60 @@
 # Juan Miguel Cerda Ordaz (Mick Ordaz)
 
-> Game Development Engineer, Technical Lead & Co-Director. Creator of Heaven Crawler, Grand Prize winner at the Supernova Devs Challenge 2025, showcased at Gamescom. 7+ years building games and software in Unity and C#.
+> Game Development Engineer, Software Engineer & Technical Lead. Creator of Heaven Crawler, Grand Prize winner at the Supernova Devs Challenge 2025, showcased at Gamescom. 7+ years building games and software in Unity, C++, and modern full-stack/AI systems.
 
 ## About
 
-Juan Miguel Cerda Ordaz (Mick Ordaz) is a Game Development Engineer based in Mexico. He is the founder of Critical Slash (independent game studio) and Lead Programmer & Co-Director at Carbon Machina Studio. He has shipped games and software on iOS, Android, PC (Steam), Apple Vision Pro, and the web. His background spans Unity game development, C++ engine programming, full-stack web development, and production agentic AI systems (LangGraph, Claude API, MCP integrations).
+Juan Miguel Cerda Ordaz (Mick Ordaz) is a Game Development Engineer and Software Engineer based in Mexico. He is the founder of Critical Slash (independent game studio) and Lead Programmer & Co-Director at Carbon Machina Studio. He has shipped games and software on iOS, Android, PC (Steam), Apple Vision Pro, and the web. His background spans Unity game development, C++ engine programming, full-stack web development, and production multi-agent AI systems (LangGraph, Claude API, agent swarms) for biomedical and cancer research.
+
+Portfolio: https://mickordaz.github.io/Portfolio/
 
 ## Key Achievements
 
-- Grand Prize, Supernova Devs Challenge 2025 (unanimous jury) — Heaven Crawler
+- Grand Prize, Supernova Devs Challenge 2025 (unanimous jury) — Heaven Crawler ($500,000 MXN prize)
 - Official showcase at Gamescom 2025 and Latin American Game Showcase — Heaven Crawler
 - Most Anticipated Game Nominee, Game Effect Awards 2025 — Heaven Crawler
 - Official Indie Showcase, Mexican Entertainment System 2025-2026 — Heaven Crawler
 - Featured Developer at Nvidia GTC 2021 — Vivarium Engine
-- Featured on Nvidia developer blog — Vivarium Engine
+- Technical Speaker at Jalisco Talent Land 2023
 
-## Projects
+## Games
 
-- [Heaven Crawler](https://mickordaz.github.io/Portfolio/#/project/heaven-crawler): Action-adventure roguelite dungeon crawler built in Unity over 6 years. Grand Prize 2025. Active Steam demo with organic community traction.
-- [Chrimp Desktop Pet](https://mickordaz.github.io/Portfolio/#/project/chicken-desktop-pet): Desktop companion game using Win32 API for transparent always-on-top overlay, full IK rig, five AI-driven minigames. Coming to Steam.
-- [Mecha K.O.](https://mickordaz.github.io/Portfolio/#/project/mecha-ko): Real-time 3D boxing game with structural destruction in Unity. Arms physically break apart — destruction is the health system.
-- [Ramen Abyss](https://mickordaz.github.io/Portfolio/#/project/ramen-abyss): Local co-op roguelike with procedural animation built in Unity 6.
-- [Mental Chat AI](https://mickordaz.github.io/Portfolio/#/project/mental-chat): AI communication companion built in Unity, shipped on iOS, Android, and Apple Vision Pro. Real-time 3D avatars with facial animation and lip-sync.
-- [Biogame AI](https://mickordaz.github.io/Portfolio/#/project/biogame): Production SaaS multi-agent LLM platform for biomedical research. Lab Director AI orchestrates specialized sub-agents across 8+ live biomedical databases. Live at biogame.ai.
-- [Doppelbio](https://mickordaz.github.io/Portfolio/#/project/doppelbio): Multi-agent AI research automation platform. Real-time WebSocket agent collaboration for drug discovery, structural biology, and literature review.
-- [Minicule](https://mickordaz.github.io/Portfolio/#/project/minicule): Biomedical research platform with AI-powered interactive knowledge graphs and dendrograms. Live at minicule.com.
-- [Docs Slayer](https://mickordaz.github.io/Portfolio/#/project/docs-slayer): AI documentation engine for game studios — connects to GitHub, deep-scans source code, generates living docs. Live in closed beta.
-- [Vivarium Engine](https://mickordaz.github.io/Portfolio/#/project/vivarium-engine): Custom C++ 3D engine with deferred PBR rendering, PhysX, VR, NavMesh baking, and live Nvidia Omniverse multi-client sync. Featured at Nvidia GTC 2021.
-- [Cyberdogz](https://mickordaz.github.io/Portfolio/#/project/cyberdogz): 3D online multiplayer space shooter built with Photon Networking.
-- [SOLBAG](https://mickordaz.github.io/Portfolio/#/project/solbag): WebXR multiplayer experience built with Niantic 8th Wall.
+- Heaven Crawler: Action-adventure roguelite dungeon crawler built in Unity over 6 years. Grand Prize 2025. Behavior-tree enemy AI, multi-phase colossal bosses, procedural generation, full-body IK, reactive elemental combat. Active Steam demo.
+- Chrimp Desktop Pet: Desktop companion game using Win32 API for a transparent, always-on-top, click-through overlay. Full IK rig, five AI-driven minigames. Coming to Steam.
+- Mecha K.O.: Narrative-driven real-time 3D boxing game with structural destruction, cel/toon shading, procedural animation, and branching dialogue. Arms physically break apart — destruction is the health system.
+- Ramen Abyss: Local co-op roguelike with wobbly physics and procedural animation built in Unity 6.
+- American Trail: Narrative game-jam adventure about climate migration (Unity).
+- Skate & Slash: Skateboard hack-and-slash prototype built in under 20 hours (Unity).
+- Slug Slayer: Rain World-inspired physics prototype with Boids AI, built in 1 day (Unity).
+- Cyberdogz: Online 3D multiplayer space shooter built with Photon Networking (Unity).
+- SOLBAG: Location-based Web AR crypto-airdrop hunt built with Niantic 8th Wall (WebXR, Solana).
+
+## Tools, Engines & Software
+
+- Biogame AI: Production SaaS multi-agent LLM platform for biomedical research with an isometric 3D lab. Lab Director AI orchestrates specialized sub-agents across 8+ live biomedical databases. Live at biogame.ai.
+- Doppelbio: Multi-agent AI research automation platform. Real-time WebSocket agent collaboration, high-fidelity 3D cell/molecular biosimulations, and knowledge-graph pipelines for drug discovery.
+- Minicule: Biomedical research platform with AI-powered interactive knowledge graphs and dendrograms. Live at minicule.com.
+- Docs Slayer: AI documentation engine for game studios — connects to GitHub, deep-scans source code with Gemini, and generates living docs. Live in closed beta.
+- Vivarium Engine: Custom C++ 3D engine with deferred PBR rendering, PhysX, VR, NavMesh baking, and live Nvidia Omniverse multi-client sync. Featured at Nvidia GTC 2021.
+- Exact Agent: Enterprise no-code AI agent platform; built a real-time 3D AI news presenter with lip-sync.
+- Mental Chat AI: Unity conversational AI companion for iOS, Android, and Apple Vision Pro with real-time 3D avatars, facial animation, and lip-sync.
+- Propermax: Real estate platform with interactive 3D maps, AI valuations, and an AI agent controller. Live at propermax.com.
+- Bowhead Health: Precision-medicine web portal with a custom scroll-driven 3D animation system. Live at bowheadhealth.com.
 
 ## Skills
 
-Unity, C#, C++, Python, JavaScript, TypeScript, React, Three.js, FastAPI, Node.js, LangGraph, Claude API, Gemini AI, Neo4j, ChromaDB, Firebase, Docker, iOS, Android, visionOS, WebXR, Agile/Scrum, Behavior Trees, Procedural Generation, Inverse Kinematics, OpenGL, DirectX, Nvidia Omniverse
+Unity, C#, C++, Python, JavaScript, TypeScript, React, Three.js, FastAPI, Node.js, LangGraph, Claude API, Gemini AI, Neo4j, ChromaDB, Firebase, Docker, iOS, Android, visionOS, WebXR, Agile/Scrum, Behavior Trees, Procedural Generation, Procedural Animation, Inverse Kinematics, Multiplayer/Networking, OpenGL, DirectX, Nvidia Omniverse, Multi-Agent AI Systems, RAG Pipelines
+
+## Experience
+
+- Founder, Developer & Tech Lead — Critical Slash (2019-2026)
+- Lead Programmer & Co-Director — Carbon Machina Studio (2021-2026)
+- Professor of Video Game Prototyping — Universidad de Artes Digitales (2022-2023)
+- Software Engineer, AI/Full-Stack & Medical Systems — Bowhead Health & Good Place Games OÜ (2022-2026)
 
 ## Contact
 
 - Portfolio: https://mickordaz.github.io/Portfolio/
 - Email: mickordaz@gmail.com
-- LinkedIn: https://linkedin.com/in/juan-miguel-cerda-ordaz
+- LinkedIn: https://www.linkedin.com/in/juan-miguel-cerda-ordaz
 - GitHub: https://github.com/mickordaz
