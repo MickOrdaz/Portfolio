@@ -137,6 +137,36 @@ const PROJECTS = [
     ],
   },
   {
+    id: 'vivarium-engine',
+    title: 'Vivarium Engine',
+    category: 'tools',
+    role: 'Solo Engine Developer',
+    description:
+      'A custom-built 3D game engine developed as a university thesis project. Built in C++, it features OpenGL deferred rendering, PBR shading, PhysX integration, VR capabilities, and a NavMesh baker. Its custom Nvidia Omniverse Connector allows multiple clients to edit and sync 3D scene data in real time. Featured Developer at Nvidia GTC 2021 and on the Nvidia developer blog.',
+    stack: ['C++', 'OpenGL', 'DirectX', 'Nvidia Omniverse API', 'PhysX'],
+    features: [
+      'CORE ARCHITECTURE: Fully custom scene graph supporting hierarchical game objects, modular components, and a robust resource manager.',
+      'PBR & DEFERRED RENDERING: High-fidelity physically based rendering with a deferred shading architecture for optimized lighting.',
+      'PHYSICS & COLLISION: Integrated PhysX simulation for realistic rigidbodies, joints, and collisions.',
+      'BUILT-IN TOOLS: 3D translation/rotation gizmos, a NavMesh baker, and a camera animator for complex pathing.',
+      'LIVE SYNC WITH CREATE APP: Real-time, bidirectional scene editing synchronized with the Nvidia Omniverse Create App.',
+      'MULTI-CLIENT SYNCHRONIZATION: Multiple connected clients edit, manipulate, and view the same 3D scene concurrently in real time.',
+      'SHARED PHYSICS SIMULATION: Shared PhysX transforms enable cross-client interactions by moving physical colliders.',
+    ],
+    links: [
+      { label: 'NVIDIA Blog Article', url: 'https://blogs.nvidia.com/blog/uad-omniverse-connector/' },
+      { label: 'NVIDIA Community Stream', url: 'https://www.nvidia.com/en-us/on-demand/session/omniverse2020-om1437/' },
+    ],
+    thumb: 'images/Vivarium/vivarium_06.mp4',
+    gallery: [
+      'images/Vivarium/vivarium_06.mp4',
+      'images/Vivarium/vivarium_07.mp4',
+      'images/Vivarium/vivarium_01.mp4',
+      'images/Vivarium/vivarium_03.mp4',
+      { yt: 'wdspUbtnLtA', title: 'Nvidia GTC 2021' },
+    ],
+  },
+  {
     id: 'american-trail',
     title: 'American Trail',
     category: 'games',
@@ -151,7 +181,7 @@ const PROJECTS = [
       'ORIGINAL TEAM PROJECT: Built by a collaborative team of designers, artists, and sound engineers in one week.',
     ],
     links: [{ label: 'View on Itch.io', url: 'https://carbon-machina.itch.io/american-trail' }],
-    thumb: 'images/AmericanTrail/trail_00.png',
+    thumb: 'images/AmericanTrail/trail_03.mp4',
     gallery: [
       'images/AmericanTrail/trail_01.mp4',
       'images/AmericanTrail/trail_02.mp4',
@@ -228,7 +258,7 @@ const PROJECTS = [
       'WEB3 & MULTIPLAYER ENGINE: Wallet verification, low-latency Photon sync, and client-side bot spawning for solo play.',
     ],
     links: [{ label: 'Visit Website', url: 'https://cyberdogz.io/' }],
-    thumb: 'images/CyberDogz/cyberdogz_00.png',
+    thumb: 'images/CyberDogz/cyberdogz_02.png',
     gallery: [
       'images/CyberDogz/cyberdogz_01.png',
       'images/CyberDogz/cyberdogz_02.png',
@@ -255,36 +285,7 @@ const PROJECTS = [
     thumb: 'images/Solbag/solbag_00.png',
     gallery: ['images/Solbag/solbag_00.png'],
   },
-  {
-    id: 'vivarium-engine',
-    title: 'Vivarium Engine',
-    category: 'tools',
-    role: 'Solo Engine Developer',
-    description:
-      'A custom-built 3D game engine developed as a university thesis project. Built in C++, it features OpenGL deferred rendering, PBR shading, PhysX integration, VR capabilities, and a NavMesh baker. Its custom Nvidia Omniverse Connector allows multiple clients to edit and sync 3D scene data in real time. Featured Developer at Nvidia GTC 2021 and on the Nvidia developer blog.',
-    stack: ['C++', 'OpenGL', 'DirectX', 'Nvidia Omniverse API', 'PhysX'],
-    features: [
-      'CORE ARCHITECTURE: Fully custom scene graph supporting hierarchical game objects, modular components, and a robust resource manager.',
-      'PBR & DEFERRED RENDERING: High-fidelity physically based rendering with a deferred shading architecture for optimized lighting.',
-      'PHYSICS & COLLISION: Integrated PhysX simulation for realistic rigidbodies, joints, and collisions.',
-      'BUILT-IN TOOLS: 3D translation/rotation gizmos, a NavMesh baker, and a camera animator for complex pathing.',
-      'LIVE SYNC WITH CREATE APP: Real-time, bidirectional scene editing synchronized with the Nvidia Omniverse Create App.',
-      'MULTI-CLIENT SYNCHRONIZATION: Multiple connected clients edit, manipulate, and view the same 3D scene concurrently in real time.',
-      'SHARED PHYSICS SIMULATION: Shared PhysX transforms enable cross-client interactions by moving physical colliders.',
-    ],
-    links: [
-      { label: 'NVIDIA Blog Article', url: 'https://blogs.nvidia.com/blog/uad-omniverse-connector/' },
-      { label: 'NVIDIA Community Stream', url: 'https://www.nvidia.com/en-us/on-demand/session/omniverse2020-om1437/' },
-    ],
-    thumb: 'images/Vivarium/vivarium_06.mp4',
-    gallery: [
-      'images/Vivarium/vivarium_06.mp4',
-      'images/Vivarium/vivarium_07.mp4',
-      'images/Vivarium/vivarium_01.mp4',
-      'images/Vivarium/vivarium_03.mp4',
-      { yt: 'wdspUbtnLtA', title: 'Nvidia GTC 2021' },
-    ],
-  },
+
   {
     id: 'biogame',
     title: 'Biogame AI',
@@ -331,8 +332,9 @@ const PROJECTS = [
       'PER-USER SESSION ISOLATION: Each session scopes all agents, Firestore data, Neo4j subgraphs, and ChromaDB collections via SHA-256 key hashing.',
     ],
     links: [],
-    thumb: 'images/Doppelbio/doppel_00.png',
+    thumb: 'images/Doppelbio/doppel_04.png',
     gallery: [
+      'images/Doppelbio/doppel_00.png',
       'images/Doppelbio/doppel_01.png',
       'images/Doppelbio/doppel_03.png',
       'images/Doppelbio/doppel_04.png',
@@ -430,7 +432,7 @@ const PROJECTS = [
       'MAXIMUM PERFORMANCE & RESPONSIVENESS: Fully responsive portal optimized for fast static load times across all devices.',
     ],
     links: [{ label: 'Visit Website', url: 'https://bowheadhealth.com/' }],
-    thumb: 'images/Bowhead/bowhead_00.png',
+    thumb: 'images/Bowhead/bowhead_02.png',
     gallery: [
       'images/Bowhead/bowhead_01.png',
       'images/Bowhead/bowhead_02.png',
@@ -652,7 +654,7 @@ const lazyObserver = new IntersectionObserver((entries) => {
     el.removeAttribute('data-src');
     if (el.tagName === 'VIDEO') {
       el.load();
-      el.play().catch(() => {});
+      el.play().catch(() => { });
     }
     lazyObserver.unobserve(el);
   });
@@ -712,7 +714,7 @@ function initHero() {
   // can flash before its turn.
   layers[0].src = playlist[0];
   layers[0].classList.add('is-active');
-  layers[0].play().catch(() => {});
+  layers[0].play().catch(() => { });
 
   function goNext() {
     if (switching) return;
@@ -729,8 +731,8 @@ function initHero() {
 
     const reveal = () => {
       otherEl.removeEventListener('loadeddata', reveal);
-      try { otherEl.currentTime = 0; } catch {}
-      otherEl.play().catch(() => {});
+      try { otherEl.currentTime = 0; } catch { }
+      otherEl.play().catch(() => { });
       // Only crossfade once the first frame of the correct clip is decoded,
       // so no stale/wrong frame is ever visible.
       requestAnimationFrame(() => {
@@ -854,20 +856,7 @@ function buildProjects() {
       lazyLoad(media);
       card.appendChild(media);
 
-      if (isVideo(proj.thumb)) {
-        card.addEventListener('mouseenter', () => {
-          if (media.getAttribute('data-src')) {
-            media.src = media.getAttribute('data-src');
-            media.removeAttribute('data-src');
-            media.load();
-          }
-          media.play().catch(() => {});
-        });
-        card.addEventListener('mouseleave', () => {
-          media.pause();
-          try { media.currentTime = 0; } catch {}
-        });
-      }
+
 
       const catLabel = proj.category === 'games' ? 'Game' : 'Tool / Engine';
       const tagsHTML = proj.stack.slice(0, 3).map(t =>
@@ -922,7 +911,7 @@ function openModal(proj) {
   function showMedia(item, thumbEl) {
     modalMainMedia.innerHTML = '';
     if (activeModalVideo) {
-      try { activeModalVideo.pause(); } catch {}
+      try { activeModalVideo.pause(); } catch { }
       activeModalVideo = null;
     }
 
@@ -944,7 +933,7 @@ function openModal(proj) {
       v.setAttribute('playsinline', '');
       v.style.width = '100%'; v.style.height = '100%'; v.style.objectFit = 'contain';
       modalMainMedia.appendChild(v);
-      v.play().catch(() => {});
+      v.play().catch(() => { });
       activeModalVideo = v;
     } else {
       const img = document.createElement('img');
@@ -974,8 +963,8 @@ function openModal(proj) {
       tv.src = item; tv.muted = true; tv.loop = true; tv.playsInline = true;
       tv.setAttribute('playsinline', '');
       thumb.appendChild(tv);
-      thumb.addEventListener('mouseenter', () => tv.play().catch(() => {}));
-      thumb.addEventListener('mouseleave', () => { tv.pause(); try { tv.currentTime = 0; } catch {} });
+      thumb.addEventListener('mouseenter', () => tv.play().catch(() => { }));
+      thumb.addEventListener('mouseleave', () => { tv.pause(); try { tv.currentTime = 0; } catch { } });
     } else {
       const ti = document.createElement('img');
       ti.src = item; ti.alt = '';
@@ -1022,7 +1011,7 @@ function openModal(proj) {
 
 function closeModal() {
   if (activeModalVideo) {
-    try { activeModalVideo.pause(); } catch {}
+    try { activeModalVideo.pause(); } catch { }
     activeModalVideo = null;
   }
   modal.classList.remove('open');
@@ -1217,7 +1206,7 @@ function initVideoPlayback() {
       if (entry.isIntersecting) {
         // For the hero, only play the currently visible (active) layer.
         if (v.classList.contains('hero__video') && !v.classList.contains('is-active')) return;
-        if (v.src || v.currentSrc) v.play().catch(() => {});
+        if (v.src || v.currentSrc) v.play().catch(() => { });
       } else if (!v.paused) {
         v.pause();
       }
